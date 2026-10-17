@@ -1,0 +1,132 @@
+* { box-sizing:border-box; }
+:root { color-scheme:light; font-family:'Zen Maru Gothic','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif; color:#182C57; background:white; }
+body { margin:0; }
+.quiz-page { width:100%; max-width:440px; margin:auto; background:radial-gradient(ellipse at 0 0,#fbe2ec 0,transparent 180px),radial-gradient(ellipse at 100% 0,#e9f5e4 0,transparent 170px),#fff; }
+.quiz-header { padding:32px 20px 18px; text-align:center; }
+.brand { color:#182C57; text-decoration:none; font-size:38px; font-weight:700; }
+h1 { font-size:20px; margin:20px 0 10px; }
+.quiz-header p { font-size:13px; color:#182C57; line-height:1.7; margin:0; }
+.progress-wrap { position:sticky; top:0; z-index:2; padding:14px 30px 10px; background:#fffffff5; }
+.progress { height:10px; border-radius:30px; overflow:hidden; background:#e1f1db; }
+.progress span { display:block; width:0; height:100%; border-radius:inherit; background:#ee91b3; }
+#progress-text { text-align:right; margin:6px 0 0; font-size:12px; color:#182C57; }
+form { padding:10px 18px 24px; }
+.question { border:0; margin:0 0 18px; padding:20px 12px 14px; min-width:0; border-radius:22px; background:white; box-shadow:0 5px 25px #563f4910; scroll-margin-top:85px; }
+.question legend { float:left; width:100%; display:flex; align-items:flex-start; gap:10px; padding:0 0 16px; font-size:16px; font-weight:700; line-height:1.8; overflow-wrap:anywhere; }
+.number { flex:0 0 38px; height:38px; display:grid; place-items:center; border-radius:50%; background:#fceaf0; color:#e75d90; font-size:14px; line-height:1; }
+.question:nth-child(even) .number { background:#edf7e8; color:#60a64e; }
+
+
+
+
+
+
+
+
+.question-error:empty { display:none; }
+.question-error,#feedback { color:#ab285a; font-size:13px; line-height:1.6; }
+.question-error { clear:both; margin:12px 0 0; text-align:center; }
+.submit-area { text-align:center; padding-top:10px; }
+.result-button,.review { width:100%; padding:17px 16px; border:0; border-radius:40px; color:white; background:linear-gradient(110deg,#e85990,#ed78a2); box-shadow:0 6px 16px #e75e9226; font:inherit; font-weight:700; cursor:pointer; }
+.result-button span { margin-left:18px; }
+.note { font-size:12px; color:#182C57; }
+footer { padding:25px 15px 45px; text-align:center; background:linear-gradient(145deg,#edf8e8,white); }
+footer a,.home { color:#182C57; font-size:14px; }
+dialog { width:358px; max-width:calc(100vw - 24px); max-height:90dvh; padding:35px 24px 28px; border:0; border-radius:24px; background:#fffdfd; text-align:center; }
+dialog::backdrop { background:#29323f66; backdrop-filter:blur(3px); }
+.close { position:absolute; top:5px; right:8px; width:40px; height:40px; border:0; background:none; color:#182C57; font-size:28px; cursor:pointer; }
+.eyebrow { color:#e65f92; font-size:12px; letter-spacing:.15em; }
+h2 { font-size:22px; line-height:1.5; }
+dialog p { line-height:1.8; }
+.retry { background:none; border:0; padding:16px; color:#182C57; font:inherit; cursor:pointer; }
+.home { display:block; margin-top:12px; }
+@media(prefers-reduced-motion:no-preference) { .progress span { transition:width .25s ease; }  }
+
+/* Preserve the reference layout while allowing each question to grow. */
+.quiz-page { position:relative; container-type:inline-size; background:#fff; overflow:hidden; }
+.quiz-header { position:relative; padding:0; height:24.8cqw; background:url('diagnosis-design.png') center top / 100% auto no-repeat; }
+.brand { position:absolute; left:40%; top:23%; width:20%; height:39%; }
+.brand span,.quiz-header h1,.quiz-header p,#progress-text { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+.brand:focus-visible { outline:2px solid #e75d90; outline-offset:4px; border-radius:4px; }
+.progress-wrap { position:absolute; top:17.65cqw; left:25%; width:50%; padding:0; background:none; }
+.progress { height:2.65cqw; min-height:9px; background:#dff1d8; }
+.progress span { background:linear-gradient(90deg,#ec8bad,#f19fbe); }
+form { padding:0 7%; }
+.question { margin:0 0 12px; padding:12px 12px 11px; border-radius:19px; background:linear-gradient(110deg,#fff,#fffefd 55%,#fff); box-shadow:0 6px 22px #5440390b; scroll-margin-top:18px; }
+.question legend { gap:13px; padding:0 0 9px; font-size:16px; letter-spacing:.035em; line-height:1.7; align-items:flex-start; }
+.question legend > span:last-child { padding-top:5px; }
+.number { flex-basis:34px; height:34px; font-size:19px; font-weight:700; background:#fce9f0; color:#e9538b; }
+.question:nth-child(even) .number { background:#eaf6e5; color:#58ac49; }
+
+
+
+
+
+
+.submit-area { position:relative; isolation:isolate; margin:0 -8.14%; padding:21px 15% 0; min-height:35cqw; }
+.submit-area::before { content:''; position:absolute; z-index:-1; inset:0; background:url('diagnosis-clean-petal.svg') center bottom / 100% auto no-repeat; clip-path:polygon(0 0,18% 0,18% 59%,82% 59%,82% 0,100% 0,100% 100%,0 100%); pointer-events:none; }
+#feedback:empty { display:none; }
+.result-button { position:relative; text-align:center; width:78%; min-height:54px; padding:13px 9px; font-size:17px; letter-spacing:.08em; background:linear-gradient(110deg,#e9548c,#e96395); box-shadow:0 5px 12px #e8598d30; }
+.result-button span { position:absolute; right:12px; top:50%; transform:translateY(-50%); margin:0; font-family:Arial, sans-serif; font-size:24px; line-height:1; font-weight:400; }
+.note { margin:10px 0 0; font-size:12px; }
+footer { padding:0 15px 20px; background:#edf6e8; }
+footer a { font-size:12px; }
+@media(max-width:360px) { .question legend { gap:9px; }   .result-button { font-size:16px; letter-spacing:0; } }
+
+form { padding-inline:4%; }
+
+/* A discrete four-step slider; untouched questions remain unanswered. */
+
+.slider-control { clear:both; padding:5px 2px 8px; }
+.answer-slider { display:block; appearance:none; -webkit-appearance:none; width:calc(100% - 40px); height:44px; margin:0 20px; background:transparent; cursor:pointer; --thumb-color:#e65d95; }
+.answer-slider::-webkit-slider-runnable-track { height:8px; border-radius:8px; background:linear-gradient(90deg,#e97ba6,#f6c7d9 40%,#cce5c2 60%,#70b665); }
+.answer-slider::-moz-range-track { height:8px; border-radius:8px; background:linear-gradient(90deg,#e97ba6,#f6c7d9 40%,#cce5c2 60%,#70b665); }
+.answer-slider::-webkit-slider-thumb { appearance:none; -webkit-appearance:none; width:28px; height:28px; margin-top:-10px; border:4px solid #fff; border-radius:50%; background:var(--thumb-color); box-shadow:0 1px 7px #29402d40; }
+.answer-slider::-moz-range-thumb { width:20px; height:20px; border:4px solid #fff; border-radius:50%; background:var(--thumb-color); box-shadow:0 1px 7px #29402d40; }
+.unanswered .answer-slider { opacity:.55; }
+.answer-slider:focus-visible { outline:2px solid #29323f; outline-offset:3px; border-radius:12px; }
+.slider-stops { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:3px; }
+.slider-stops span { position:relative; border:0; border-radius:10px; background:transparent; color:#182C57; padding:8px 1px; min-width:0; min-height:44px; font:inherit; font-size:clamp(6px,1.9cqw,8.3px); line-height:1.45; white-space:nowrap; cursor:pointer; }
+.slider-stops span[aria-pressed="true"] { color:#b9366c; background:#fff0f6; font-weight:700; }
+.slider-stops span:nth-child(n+3)[aria-pressed="true"] { color:#387b31; background:#eef7e9; }
+.slider-stops span:focus-visible { outline:2px solid #29323f; outline-offset:1px; }
+
+/* Only the two endpoints need visible labels; all four stops remain selectable. */
+.slider-stops span { overflow:visible; font-size:clamp(11px,3.2cqw,14px); }
+.slider-stops span:first-child { text-align:left; }
+.slider-stops span:last-child { text-align:right; direction:rtl; }
+
+/* Keep every slider label free of selection-box backgrounds. */
+.slider-stops span { background:transparent!important; }
+
+/* Ticks mark only the two interior slider stops. */
+.answer-slider {
+ background-image:linear-gradient(#cc6b94,#cc6b94),linear-gradient(#70a463,#70a463);
+ background-size:2px 18px;
+ background-repeat:no-repeat;
+ background-position:calc(33.333333% + 4.333333px) center,calc(66.666667% - 4.333333px) center;
+}
+
+/* Labels below the slider are display-only. */
+.slider-stops { pointer-events:none; }
+.slider-stops span { cursor:default; }
+
+/* Direction arrows sit just outside the two interior ticks. */
+.slider-stops span:nth-child(2) { text-align:center; transform:translateX(-12px); color:#cc6b94; }
+.slider-stops span:nth-child(3) { text-align:center; transform:translateX(12px); color:#70a463; }
+
+/* Give the direction arrows a clearly visible, heavier stroke. */
+.slider-stops span:nth-child(2),
+.slider-stops span:nth-child(3) { font-weight:700; -webkit-text-stroke:0.6px currentColor; }
+
+/* Endpoint labels brighten with the slider after an answer is chosen. */
+.slider-stops span:first-child { color:#e65d95; }
+.slider-stops span:last-child { color:#529b47; }
+.slider-stops span { opacity:1; }
+.unanswered .slider-stops span { opacity:.55; }
+
+/* Center validation text within each question. */
+.question-error { margin-inline:0; text-align:center; }
+
+
+#feedback { text-align:center; }

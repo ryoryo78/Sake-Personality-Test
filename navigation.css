@@ -1,0 +1,27 @@
+.site-navigation { position:fixed; z-index:1000; top:8px; left:50%; transform:translateX(-50%); width:100%; max-width:440px; pointer-events:none; box-sizing:border-box; font-family:'Zen Maru Gothic','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif; }
+.site-menu-toggle { position:absolute; right:9px; top:0; width:44px; height:44px; padding:11px 10px; display:flex; flex-direction:column; justify-content:space-around; border:1px solid #edf2ec; border-radius:12px; background:#fff; color:#182C57; box-shadow:0 2px 10px #25443b0b; cursor:pointer; pointer-events:auto; }
+.site-menu-toggle span { display:block; width:22px; height:2px; border-radius:2px; background:currentColor; }
+.site-menu-toggle[aria-expanded="true"] span:first-child { transform:translateY(7px) rotate(45deg); }
+.site-menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity:0; }
+.site-menu-toggle[aria-expanded="true"] span:last-child { transform:translateY(-7px) rotate(-45deg); }
+.site-menu { position:absolute; top:52px; right:9px; width:230px; max-width:calc(100% - 18px); padding:8px; border:1px solid #f4dfe8; border-radius:16px; background:#fff; box-shadow:0 8px 28px #2c3a4326; pointer-events:auto; }
+.site-menu[hidden] { display:none!important; }
+.site-menu a { display:block; padding:14px 12px; border-radius:9px; text-decoration:none; color:#182C57; font-size:15px; line-height:1.5; }
+.site-menu a:hover { background:#f4faef; }
+.site-menu a[aria-current="page"] { color:#d34f80; background:#fff0f6; font-weight:700; }
+.site-menu-toggle:focus-visible,.site-menu a:focus-visible { outline:3px solid #4d8260; outline-offset:2px; }
+@media(prefers-reduced-motion:no-preference) { .site-menu-toggle span { transition:transform .15s,opacity .15s; } }
+
+/* Touch phones fill their viewport even when it is wider than 440 CSS pixels. */
+@media (hover:none) and (pointer:coarse) and (max-width:767px) {
+ .page-frame, .quiz-page, .characters-page, .result-page, .site-navigation { max-width:none; width:100%; }
+}
+
+/* Mint-blue gutters around the centered desktop page. */
+@media (min-width:440.01px) {
+ html { background:#BDE0D8; }
+ body { min-height:100vh; background:linear-gradient(to right,#BDE0D8 0,#BDE0D8 calc(50% - 220px),#fff calc(50% - 220px),#fff calc(50% + 220px),#BDE0D8 calc(50% + 220px)); }
+ .page-frame, .characters-page { background:#fff; }
+}
+
+button, input, select, textarea { font-family:inherit; }
