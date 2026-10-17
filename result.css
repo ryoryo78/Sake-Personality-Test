@@ -141,4 +141,4 @@ h2 { font-size:18px; }
 /* Supplied official social brand assets. */
 .social-icon{display:grid;place-items:center;box-sizing:border-box;padding:10px;background:#000;line-height:normal}
 .social-icon img{display:block;width:100%;height:100%;object-fit:contain}
-.instagram-share .social-icon{padding:5px;background:transparent;border-radius:0}
+.instagram-share .social-icon{padding:12px;background:#fff0f6;border-radius:50%;overflow:hidden}
