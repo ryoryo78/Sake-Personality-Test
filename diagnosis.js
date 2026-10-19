@@ -50,7 +50,7 @@ for(const group of groups){
  const legend=group.querySelector('legend');legend.id=group.id+'-label';range.setAttribute('aria-labelledby',legend.id);
  const stops=document.createElement('div');stops.className='slider-stops';
  sliderLabels.forEach((label,index)=>{const text=document.createElement('span');text.textContent=(index===0||index===3)?label:(index===1?'←':'→');if(index===1||index===2)text.setAttribute('aria-hidden','true');stops.append(text);});
- function sync(){const index=answerValues.indexOf(answers[group.dataset.questionId]);control.classList.toggle('unanswered',index<0);range.step=index<0?'any':'1';range.value=String(index<0?1.5:index);range.style.setProperty('--thumb-color',(index<0?groups.indexOf(group)%2===1:index>=2)?'#529b47':'#e65d95');range.setAttribute('aria-valuetext',index<0?'未回答':sliderLabels[index]);}
+ function sync(){const index=answerValues.indexOf(answers[group.dataset.questionId]);control.classList.toggle('unanswered',index<0);range.step=index<0?'any':'1';range.value=String(index<0?1.5:index);range.style.setProperty('--thumb-color',index<0?'#fffdf8':index>=2?'#529b47':'#e65d95');range.setAttribute('aria-valuetext',index<0?'未回答':sliderLabels[index]);}
  function choose(index){if(!Number.isInteger(index)||index<0||index>=answerValues.length)return;answers[group.dataset.questionId]=answerValues[index];sync();updateProgress();}
  range.addEventListener('input',()=>choose(Math.round(Number(range.value))));
  range.addEventListener('pointerup',()=>choose(Math.round(Number(range.value))));

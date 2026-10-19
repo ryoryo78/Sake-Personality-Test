@@ -135,3 +135,7 @@ form { padding-inline:4%; }
 .quiz-page { overflow:clip; }
 .quiz-sticky-header { position:sticky; top:0; z-index:20; background:#fff; }
 .question { scroll-margin-top:calc(24.8cqw + 18px); }
+
+/* Warm-white initial thumb with a contrasting cool-gray rim. */
+.unanswered .answer-slider::-webkit-slider-thumb { border-color:#9ca8b0; box-shadow:0 1px 7px #29402d55; }
+.unanswered .answer-slider::-moz-range-thumb { border-color:#9ca8b0; box-shadow:0 1px 7px #29402d55; }
