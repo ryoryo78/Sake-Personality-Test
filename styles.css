@@ -18,7 +18,7 @@ body { margin: 0; }
 .crane { top: 74.00%; }
 .kappa { top: 80.91%; }
 .type-list { left: 25.04%; top: 88.72%; width: 50.07%; height: 3.27%; }
-dialog { width: 358px; max-width: calc(100vw - 24px); max-height: 85dvh; padding: 40px 24px 28px; border: 0; border-radius: 26px; background: #fffdfd; box-shadow: 0 12px 64px #5b274622; }
+dialog { width: 358px; max-width: calc(100vw - 24px); padding: 40px 24px 28px; border: 0; border-radius: 26px; background: #fffdfd; box-shadow: 0 12px 64px #5b274622; }
 dialog::backdrop { background: #29323f66; backdrop-filter: blur(3px); }
 .close { position: absolute; right: 8px; top: 6px; width: 40px; height: 40px; border: 0; background: none; font-size: 28px; color:#182C57; cursor: pointer; }
 h2 { margin: 0 0 16px; font-size: 23px; line-height: 1.5; }
