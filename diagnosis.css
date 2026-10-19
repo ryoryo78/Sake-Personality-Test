@@ -130,3 +130,8 @@ form { padding-inline:4%; }
 
 
 #feedback { text-align:center; }
+
+/* Keep the logo and progress visible while questions scroll. */
+.quiz-page { overflow:clip; }
+.quiz-sticky-header { position:sticky; top:0; z-index:20; background:#fff; }
+.question { scroll-margin-top:calc(24.8cqw + 18px); }
