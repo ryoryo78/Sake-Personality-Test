@@ -110,3 +110,11 @@ body.homepage-static .characters .character.card-slide-ready:focus-visible { tra
 /* Keep overflowing dialog content scrollable without a visible scrollbar. */
 #panel { overflow-y:auto; scrollbar-width:none; -ms-overflow-style:none; }
 #panel::-webkit-scrollbar { display:none; width:0; height:0; }
+
+/* Arrow-free CTA overlays replace the flattened buttons. */
+.start-top,.start-middle,.type-list { display:grid; place-items:center; color:#fff; text-decoration:none; font-size:3.5cqw; font-weight:700; background:linear-gradient(110deg,#e85990,#ed78a2); }
+.start-top::after,.start-middle::after,.type-list::after { content:attr(aria-label); }
+.start-middle { background:linear-gradient(110deg,#70b65b,#64a84e); }
+.start-top:hover,.type-list:hover { background:linear-gradient(110deg,#e85990,#ed78a2); }
+.start-middle:hover { background:linear-gradient(110deg,#70b65b,#64a84e); }
+.character-copy { right:3.076923cqw; }
