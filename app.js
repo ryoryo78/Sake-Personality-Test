@@ -38,7 +38,7 @@ panel.addEventListener('click',event=>{
  if(event.target===panel){const r=panel.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)panel.close();}
 });
 
-// Reveal only the three feature cards in their original flattened artwork.
+// One ordered reveal queue for features, followed by character cards.
 const featureMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 if (!featureMotion.matches && 'IntersectionObserver' in window) {
   const page = document.querySelector('.page');
@@ -57,46 +57,33 @@ if (!featureMotion.matches && 'IntersectionObserver' in window) {
     page.append(mask);
     return mask;
   });
-  let nextReveal = 0;
-  const observer = new IntersectionObserver(entries => {
-    const visible = entries.filter(entry => entry.isIntersecting)
-      .sort((a, b) => masks.indexOf(a.target) - masks.indexOf(b.target));
-    for (const entry of visible) {
-      const now = performance.now();
-      const delay = Math.max(0, nextReveal - now);
-      entry.target.style.setProperty('--reveal-delay', delay + 'ms');
-      entry.target.classList.add('is-revealed');
-      nextReveal = now + delay + 220;
-      observer.unobserve(entry.target);
-    }
-  }, { threshold: .15 });
-  masks.forEach(mask => observer.observe(mask));
-  featureMotion.addEventListener('change', event => {
-    if (event.matches) { observer.disconnect(); masks.forEach(mask => mask.remove()); }
-  });
-}
-
-// Reveal the four live character cards with the same timing as the features.
-if (!featureMotion.matches && 'IntersectionObserver' in window) {
   const cards = [...document.querySelectorAll('.characters .character')];
   cards.forEach(card => card.classList.add('card-slide-ready'));
-  let nextCardReveal = 0;
-  const cardObserver = new IntersectionObserver(entries => {
-    const visible = entries.filter(entry => entry.isIntersecting)
-      .sort((a, b) => cards.indexOf(a.target) - cards.indexOf(b.target));
-    for (const entry of visible) {
+  const targets = [...masks, ...cards];
+  let nextIndex = 0;
+  let nextReveal = 0;
+  const observer = new IntersectionObserver(entries => {
+    const visibleIndices = entries.filter(entry => entry.isIntersecting)
+      .map(entry => targets.indexOf(entry.target));
+    const lastVisible = Math.max(-1, ...visibleIndices);
+    // Include earlier cards even when a fast scroll skips over them.
+    while (nextIndex <= lastVisible) {
+      const target = targets[nextIndex];
       const now = performance.now();
-      const delay = Math.max(0, nextCardReveal - now);
-      entry.target.style.setProperty('--card-delay', delay + 'ms');
-      entry.target.classList.add('card-slide-visible');
-      nextCardReveal = now + delay + 220;
-      cardObserver.unobserve(entry.target);
+      const delay = Math.max(0, nextReveal - now);
+      const isFeature = nextIndex < masks.length;
+      target.style.setProperty(isFeature ? '--reveal-delay' : '--card-delay', delay + 'ms');
+      target.classList.add(isFeature ? 'is-revealed' : 'card-slide-visible');
+      nextReveal = now + delay + 300;
+      observer.unobserve(target);
+      nextIndex++;
     }
   }, { threshold: .15 });
-  cards.forEach(card => cardObserver.observe(card));
+  targets.forEach(target => observer.observe(target));
   featureMotion.addEventListener('change', event => {
     if (event.matches) {
-      cardObserver.disconnect();
+      observer.disconnect();
+      masks.forEach(mask => mask.remove());
       cards.forEach(card => card.classList.remove('card-slide-ready'));
     }
   });
