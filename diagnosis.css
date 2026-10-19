@@ -155,3 +155,8 @@ form { padding-inline:4%; }
 }
 .unanswered .answer-slider::-webkit-slider-thumb { border-color:#aab5bd; }
 .unanswered .answer-slider::-moz-range-thumb { border-color:#aab5bd; }
+/* Thin white rim, preserving the thumb's outer size and depth. */
+.answer-slider::-webkit-slider-thumb,
+.unanswered .answer-slider::-webkit-slider-thumb { border:2px solid #fff; }
+.answer-slider::-moz-range-thumb,
+.unanswered .answer-slider::-moz-range-thumb { width:24px; height:24px; border:2px solid #fff; }
