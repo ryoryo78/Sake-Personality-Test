@@ -46,15 +46,15 @@ const sliderLabels=['当てはまる','やや当てはまる','あまり当て�
 for(const group of groups){
 
  const control=document.createElement('div');control.className='slider-control';
- const range=document.createElement('input');range.type='range';range.className='answer-slider';range.min='0';range.max='3';range.step='1';range.value='0';
+ const range=document.createElement('input');range.type='range';range.className='answer-slider';range.min='0';range.max='3';range.step='any';range.value='1.5';
  const legend=group.querySelector('legend');legend.id=group.id+'-label';range.setAttribute('aria-labelledby',legend.id);
  const stops=document.createElement('div');stops.className='slider-stops';
  sliderLabels.forEach((label,index)=>{const text=document.createElement('span');text.textContent=(index===0||index===3)?label:(index===1?'←':'→');if(index===1||index===2)text.setAttribute('aria-hidden','true');stops.append(text);});
- function sync(){const index=answerValues.indexOf(answers[group.dataset.questionId]);control.classList.toggle('unanswered',index<0);range.value=String(index<0?0:index);range.style.setProperty('--thumb-color',index>=2?'#529b47':'#e65d95');range.setAttribute('aria-valuetext',index<0?'未回答':sliderLabels[index]);}
+ function sync(){const index=answerValues.indexOf(answers[group.dataset.questionId]);control.classList.toggle('unanswered',index<0);range.step=index<0?'any':'1';range.value=String(index<0?1.5:index);range.style.setProperty('--thumb-color',index>=2?'#529b47':'#e65d95');range.setAttribute('aria-valuetext',index<0?'未回答':sliderLabels[index]);}
  function choose(index){if(!Number.isInteger(index)||index<0||index>=answerValues.length)return;answers[group.dataset.questionId]=answerValues[index];sync();updateProgress();}
- range.addEventListener('input',()=>choose(Number(range.value)));
- range.addEventListener('pointerup',()=>choose(Number(range.value)));
- range.addEventListener('keyup',event=>{if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End',' '].includes(event.key))choose(Number(range.value));});
+ range.addEventListener('input',()=>choose(Math.round(Number(range.value))));
+ range.addEventListener('pointerup',()=>choose(Math.round(Number(range.value))));
+ range.addEventListener('keyup',event=>{if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End',' '].includes(event.key))choose(Math.round(Number(range.value)));});
  window.addEventListener('pageshow',sync);
  control.append(range,stops);group.insertBefore(control,group.querySelector('.question-error'));sync();
 }
