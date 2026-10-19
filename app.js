@@ -8,7 +8,7 @@ function detail(code) {
   if(!type)return;
   opener=document.activeElement;
   content.replaceChildren();
-  const eyebrow=document.createElement('p');eyebrow.className='eyebrow';eyebrow.textContent=code+' / CHARACTERS';
+  const eyebrow=document.createElement('p');eyebrow.className='eyebrow';eyebrow.textContent='CHARACTERS';
   const image=document.createElement('img');image.className='detail-portrait';image.src='images/'+type.imageFileName;image.alt=type.name;
   const heading=document.createElement('h2');heading.id='panel-title';heading.textContent=type.name;heading.tabIndex=-1;
   const description=document.createElement('p');description.textContent=type.personality;
