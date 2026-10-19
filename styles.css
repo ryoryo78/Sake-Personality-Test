@@ -107,3 +107,6 @@ body.homepage-static .characters .character.card-slide-ready:focus-visible { tra
 #panel p:not(.eyebrow) { font-size:16px; line-height:1.8; }
 #panel .primary { padding:15px; margin-top:24px; background:#ec6797; border-radius:30px; font-size:16px; font-weight:700; }
 #panel .back { padding:16px; margin-top:6px; font-size:16px; }
+/* Keep overflowing dialog content scrollable without a visible scrollbar. */
+#panel { overflow-y:auto; scrollbar-width:none; -ms-overflow-style:none; }
+#panel::-webkit-scrollbar { display:none; width:0; height:0; }
