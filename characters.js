@@ -9,7 +9,7 @@ for(let row=1;row<heights.length;row++) rows[row]=rows[row-1]+heights[row-1]*.94
 const savedHeight=(84.03+heights[7]*.95)-(rows[7]+heights[7]*.94*.9);
 const page=document.querySelector('.characters-page');
 page.style.setProperty('--list-trim',savedHeight+'%');
-const updatePageTrim=()=>page.style.setProperty('--list-trim-space',(page.clientWidth*savedHeight/100*2804/561)+'px');
+const updatePageTrim=()=>document.querySelector('.characters-viewport').style.height=(page.clientWidth*(1-savedHeight/100)*2804/561)+'px';
 updatePageTrim();
 new ResizeObserver(updatePageTrim).observe(page);
 const detail=document.querySelector('#character-detail');

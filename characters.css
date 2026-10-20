@@ -3,7 +3,8 @@
 body { margin:0; }
 .characters-page { position:relative; width:100%; max-width:440px; margin-inline:auto; container-type:inline-size; }
 .design { display:block; width:100%; height:auto; }
-.characters-page { margin-bottom:calc(-1 * var(--list-trim-space,0px)); clip-path:inset(0 0 var(--list-trim,0%) 0); }
+.characters-viewport { width:100%; max-width:440px; margin-inline:auto; overflow:clip; }
+@media (hover:none) and (pointer:coarse) and (max-width:767px) { .characters-viewport { max-width:none; } }
 .characters-footer-decoration { position:absolute; left:0; top:calc(95% - var(--list-trim,0%)); width:100%; height:5%; pointer-events:none; }
 /* Cover the flattened card artwork before drawing the sixteen live cards. */
 #character-cards::before { content:''; position:absolute; inset:9.4% 0 5%; background:#fff; pointer-events:none; }
