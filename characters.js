@@ -15,7 +15,7 @@ characters.forEach(({name,personality:description,imageFileName},index)=>{
  const title=document.createElement('strong');title.textContent=name;
  const arrow=document.createElement('span');arrow.className='character-arrow';arrow.setAttribute('aria-hidden','true');
  const chevron=document.createElement('span');arrow.append(chevron);
- copy.append(title);button.append(picture,copy);
+ copy.append(title,arrow);button.append(picture,copy);
  button.style.left=index%2?'51.2%':'2.7%';button.style.top=rows[Math.floor(index/2)]+'%';button.style.height=heights[Math.floor(index/2)]+'%';
  button.setAttribute('aria-label',name+' 詳しく見る');
  button.addEventListener('click',()=>{
