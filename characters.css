@@ -4,7 +4,9 @@ body { margin:0; }
 .characters-page { position:relative; width:100%; max-width:440px; margin-inline:auto; container-type:inline-size; }
 .design { display:block; width:100%; height:auto; }
 /* Cover the flattened card artwork before drawing the sixteen live cards. */
-#character-cards::before { content:''; position:absolute; inset:9.4% 0 4%; background:#fff; pointer-events:none; }
+#character-cards::before { content:''; position:absolute; inset:9.4% 0 5%; background:#fff; pointer-events:none; }
+/* Redraw the upper decoration above the cover, behind the live cards. */
+.characters-edge-decoration { position:absolute; top:5.7%; right:0; width:13%; height:5%; pointer-events:none; }
 .characters-intro { position:absolute; top:5.75%; left:14%; width:72%; height:3.05%; margin:0; display:flex; flex-direction:column; justify-content:center; background:#fff; color:#182C57; text-align:center; font-size:2.8cqw; font-weight:500; line-height:1.65; letter-spacing:0; }
 .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
 .hotspot { position:absolute; display:block; padding:0; border:0; border-radius:18px; background:transparent; cursor:pointer; -webkit-tap-highlight-color:#f46b9a22; }
