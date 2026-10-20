@@ -11,10 +11,10 @@ body { margin:0; }
 .logo { left:5%; top:.7%; width:16%; height:1.7%; border-radius:4px; }
 .menu-toggle { right:3%; top:.5%; width:10%; height:2%; border-radius:5px; }
 .character-card { width:46.3%; }
-.character-card { --ink:#e84183; --surface:#fff7fa; --circle:#fbdbe8; --image-surface:#fff0f6; font:inherit; text-align:left; background:var(--surface); overflow:hidden; }
-.character-card[data-tone="green"] { --ink:#2b873f; --surface:#f5fbf2; --circle:#d9efd3; --image-surface:#eef8eb; }
-.character-card:hover { background:var(--surface); }
-.character-picture { position:absolute; inset:0 0 28%; padding:2cqw; background:linear-gradient(135deg,var(--image-surface),var(--surface)); }
+.character-card { --ink:#e84183; --surface:#fff; --circle:#fbdbe8; --image-surface:#fff0f6; font:inherit; text-align:left; background:var(--surface); overflow:hidden; }
+.character-card[data-tone="green"] { --ink:#2b873f; --surface:#fff; --circle:#d9efd3; --image-surface:#eef8eb; }
+.character-card, .character-card:hover { background:var(--surface); box-shadow:0 0 3px 1px var(--circle),0 4px 12px var(--circle); }
+.character-picture { position:absolute; inset:0 0 28%; padding:2cqw; background:#fff; }
 .character-picture img { display:block; width:100%; height:100%; object-fit:contain; object-position:center; }
 .character-copy { position:absolute; inset:72% 0 0; padding:1.4cqw 8.5cqw 1cqw 3cqw; border-radius:0 0 18px 18px; background:var(--surface); display:flex; align-items:center; }
 .character-copy strong { display:block; color:var(--ink); font-size:2.8cqw; line-height:1.4; white-space:nowrap; }
