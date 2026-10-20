@@ -118,3 +118,13 @@ body.homepage-static .characters .character.card-slide-ready:focus-visible { tra
 .start-top:hover,.type-list:hover { background:linear-gradient(110deg,#e85990,#ed78a2); }
 .start-middle:hover { background:linear-gradient(110deg,#70b65b,#64a84e); }
 .character-copy { right:10.256410cqw; }
+
+/* Stage the first paint without flashing the flattened cards underneath. */
+.home-loading:not(.home-background-ready) .page { visibility:hidden; }
+.home-loading:not(.home-buttons-ready) .site-navigation { visibility:hidden; }
+.home-loading:not(.home-buttons-ready) .start-top,
+.home-loading:not(.home-buttons-ready) .start-middle,
+.home-loading:not(.home-buttons-ready) .type-list {
+  background:#fff; color:transparent; pointer-events:none;
+}
+.home-loading .characters .character { visibility:hidden; }

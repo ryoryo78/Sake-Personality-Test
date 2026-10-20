@@ -40,6 +40,7 @@ panel.addEventListener('click',event=>{
 
 // One ordered reveal queue for features, followed by character cards.
 const featureMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let startReveals = () => {};
 if (!featureMotion.matches && 'IntersectionObserver' in window) {
   const page = document.querySelector('.page');
   const masks = [25.7, 33, 40.3].map(top => {
@@ -79,7 +80,10 @@ if (!featureMotion.matches && 'IntersectionObserver' in window) {
       nextIndex++;
     }
   }, { threshold: .15 });
-  targets.forEach(target => observer.observe(target));
+  startReveals = () => {
+    if (featureMotion.matches) return;
+    targets.forEach(target => observer.observe(target));
+  };
   featureMotion.addEventListener('change', event => {
     if (event.matches) {
       observer.disconnect();
@@ -88,3 +92,23 @@ if (!featureMotion.matches && 'IntersectionObserver' in window) {
     }
   });
 }
+
+// Decode the artwork first, paint the buttons next, then enable the reveal queue.
+async function showHomepage() {
+  const root = document.documentElement;
+  const design = document.querySelector('.design');
+  const painted = () => new Promise(resolve =>
+    requestAnimationFrame(() => requestAnimationFrame(resolve)));
+  try {
+    await design.decode();
+  } catch {
+    // A failed image must not leave navigation and content inaccessible.
+  }
+  root.classList.add('home-background-ready');
+  await painted();
+  root.classList.add('home-buttons-ready');
+  await painted();
+  root.classList.remove('home-loading');
+  startReveals();
+}
+showHomepage();
