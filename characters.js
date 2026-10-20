@@ -1,7 +1,10 @@
 'use strict';
 const characters=['EADC','EADS','EAFC','EAFS','EPDC','EPDS','EPFC','EPFS','IADC','IADS','IAFC','IAFS','IPDC','IPDS','IPFC','IPFS'].map(code=>typeData[code]);
-const rows=[9.75,19.58,29.84,40.34,51.12,62.01,73.14,84.03];
 const heights=[9.4,9.8,10,10.2,10.4,10.5,10.5,10.8];
+// Match the visible horizontal gap after the 90% card scaling.
+const rowGap=(51.2-2.7-46.3*.9)*561/2804;
+const rows=[9.75+heights[0]*.05];
+for(let row=1;row<heights.length;row++) rows[row]=rows[row-1]+heights[row-1]*.94*.9+rowGap;
 const detail=document.querySelector('#character-detail');
 let activeCard;
 characters.forEach(({code,name,personality:description,imageFileName},index)=>{
@@ -17,7 +20,7 @@ characters.forEach(({code,name,personality:description,imageFileName},index)=>{
  const chevron=document.createElement('span');arrow.append(chevron);
  copy.append(title,arrow);button.append(picture,copy);
  button.style.left=index%2?'51.2%':'2.7%';const row=Math.floor(index/2);
- button.style.top=(rows[row]+heights[row]*.003)+'%';button.style.height=(heights[row]*.94)+'%';
+ button.style.top=(rows[row]-heights[row]*.94*.05)+'%';button.style.height=(heights[row]*.94)+'%';
  button.setAttribute('aria-label',name+' 詳しく見る');
  button.addEventListener('click',()=>{
   const portrait=document.querySelector('#character-detail-image');
