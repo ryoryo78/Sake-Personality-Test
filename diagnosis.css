@@ -48,8 +48,9 @@ dialog p { line-height:1.8; }
 .brand { position:absolute; left:40%; top:23%; width:20%; height:39%; }
 .brand span,.quiz-header h1,.quiz-header p,#progress-text { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
 .brand:focus-visible { outline:2px solid #e75d90; outline-offset:4px; border-radius:4px; }
-.progress-wrap { position:absolute; top:17.65cqw; left:25%; width:50%; padding:0; background:none; }
-.progress { height:2.65cqw; min-height:9px; background:#dff1d8; }
+.progress-wrap { position:absolute; top:71.169355%; left:25%; width:50%; height:10.685484%; padding:0; background:none; }
+.progress { position:relative; width:100%; height:100%; min-height:0; border-radius:999px; overflow:hidden; clip-path:inset(0 round 999px); background:#dff1d8; }
+.progress > span { max-width:100%; max-height:100%; }
 .progress span { background:linear-gradient(90deg,#ec8bad,#f19fbe); }
 form { padding:0 7%; }
 .question { margin:0 0 12px; padding:12px 12px 11px; border-radius:19px; background:linear-gradient(110deg,#fff,#fffefd 55%,#fff); box-shadow:0 6px 22px #5440390b; scroll-margin-top:18px; }
