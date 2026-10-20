@@ -145,13 +145,13 @@ form { padding-inline:4%; }
 .unanswered .answer-slider::-webkit-slider-thumb {
  background:var(--thumb-color);
  border-color:#f7f9fa;
- box-shadow:inset 0 1px 0 #ffffff80,inset 0 -1px 0 #263b4a24,0 1px 1px #63748033,0 2px 4px #24364430;
+ box-shadow:inset 0 2px 2px #ffffff99,inset 0 -2px 2px #263b4a30,0 1px 1px #63748040,0 3px 5px #24364438;
 }
 .answer-slider::-moz-range-thumb,
 .unanswered .answer-slider::-moz-range-thumb {
  background:var(--thumb-color);
  border-color:#f7f9fa;
- box-shadow:inset 0 1px 0 #ffffff80,inset 0 -1px 0 #263b4a24,0 1px 1px #63748033,0 2px 4px #24364430;
+ box-shadow:inset 0 2px 2px #ffffff99,inset 0 -2px 2px #263b4a30,0 1px 1px #63748040,0 3px 5px #24364438;
 }
 .unanswered .answer-slider::-webkit-slider-thumb { border-color:#aab5bd; }
 .unanswered .answer-slider::-moz-range-thumb { border-color:#aab5bd; }
