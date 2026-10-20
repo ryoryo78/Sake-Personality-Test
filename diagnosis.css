@@ -44,7 +44,13 @@ dialog p { line-height:1.8; }
 
 /* Preserve the reference layout while allowing each question to grow. */
 .quiz-page { position:relative; container-type:inline-size; background:#fff; overflow:hidden; }
-.quiz-header { position:relative; padding:0; height:24.8cqw; background:url('diagnosis-design.png') center top / 100% auto no-repeat; }
+.quiz-header { position:relative; padding:0; height:24.8cqw; background:#fff; }
+/* Exclude the progress track baked into the artwork, including its soft edges. */
+.quiz-header::before {
+ content:''; position:absolute; inset:0; pointer-events:none;
+ background:url('diagnosis-design.png') center top / 100% auto no-repeat;
+ clip-path:polygon(evenodd,0 0,100% 0,100% 100%,0 100%,0 0,24% 69%,24% 85%,76% 85%,76% 69%,24% 69%);
+}
 .brand { position:absolute; left:40%; top:23%; width:20%; height:39%; }
 .brand span,.quiz-header h1,.quiz-header p,#progress-text { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
 .brand:focus-visible { outline:2px solid #e75d90; outline-offset:4px; border-radius:4px; }
