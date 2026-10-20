@@ -4,7 +4,7 @@ const rows=[9.75,19.58,29.84,40.34,51.12,62.01,73.14,84.03];
 const heights=[9.4,9.8,10,10.2,10.4,10.5,10.5,10.8];
 const detail=document.querySelector('#character-detail');
 let activeCard;
-characters.forEach(({name,personality:description,imageFileName},index)=>{
+characters.forEach(({code,name,personality:description,imageFileName},index)=>{
  const button=document.createElement('button');
  button.className='hotspot character-card';button.type='button';
  button.dataset.tone=(Math.floor(index/2)+index%2)%2===0?'pink':'green';
@@ -21,6 +21,7 @@ characters.forEach(({name,personality:description,imageFileName},index)=>{
  button.addEventListener('click',()=>{
   const portrait=document.querySelector('#character-detail-image');
   portrait.src='images/'+imageFileName;portrait.alt=name+'のキャラクター';
+  detail.querySelector('.start-link').href='result.html?type='+encodeURIComponent(code);
   activeCard=button;document.querySelector('#character-name').textContent=name;document.querySelector('#character-description').textContent=description;detail.showModal();
  });
  document.querySelector('#character-cards').append(button);
