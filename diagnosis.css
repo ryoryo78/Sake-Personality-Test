@@ -174,3 +174,5 @@ form { padding-inline:4%; }
 #diagnosis-notice strong { color:#b84473; font-size:14px; }
 #diagnosis-notice-confirm { border:0; border-radius:30px; color:#fff; cursor:pointer; width:100%; margin:4px 0 0; padding:14px 10px; font:inherit; font-size:15px; font-weight:700; background:#ec6797; }
 #diagnosis-notice-confirm:focus-visible { outline:3px solid #182c57; outline-offset:3px; }
+
+#diagnosis-notice-title:focus { outline:none; }
