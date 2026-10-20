@@ -60,15 +60,15 @@ for(const group of groups){
 }
 updateProgress();
 
-// Remember an explicit acknowledgement on this browser, without storing answers.
+// Keep acknowledgement only for the current tab session.
 const notice=document.querySelector('#diagnosis-notice');
 const noticeKey='me-diagnosis-notice-acknowledged-v1';
 let noticeAcknowledged=false;
-try{noticeAcknowledged=localStorage.getItem(noticeKey)==='yes';}catch{}
+try{noticeAcknowledged=sessionStorage.getItem(noticeKey)==='yes';}catch{}
 if(!noticeAcknowledged)notice.showModal();
 notice.addEventListener('cancel',event=>event.preventDefault());
 document.querySelector('#diagnosis-notice-confirm').addEventListener('click',()=>{
- try{localStorage.setItem(noticeKey,'yes');}catch{}
+ try{sessionStorage.setItem(noticeKey,'yes');}catch{}
  notice.close();
  document.querySelector('.answer-slider')?.focus({preventScroll:true});
 });
