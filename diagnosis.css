@@ -167,3 +167,10 @@ form { padding-inline:4%; }
 .unanswered .answer-slider::-webkit-slider-thumb { border:2px solid #fff; }
 .answer-slider::-moz-range-thumb,
 .unanswered .answer-slider::-moz-range-thumb { width:24px; height:24px; border:2px solid #fff; }
+
+#diagnosis-notice { width:370px; padding:28px 24px; border:1px solid #f8e4ed; background:linear-gradient(135deg,#fff8fb,#fff,#f3faef); }
+#diagnosis-notice h2 { margin:0 0 20px; font-size:21px; }
+#diagnosis-notice p { text-align:left; font-size:14px; line-height:1.8; margin:0 0 18px; }
+#diagnosis-notice strong { color:#b84473; }
+#diagnosis-notice-confirm { width:100%; margin:4px 0 0; padding:14px 10px; font:inherit; font-size:15px; font-weight:700; background:#ec6797; }
+#diagnosis-notice-confirm:focus-visible { outline:3px solid #182c57; outline-offset:3px; }

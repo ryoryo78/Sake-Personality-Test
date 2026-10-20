@@ -59,3 +59,16 @@ for(const group of groups){
  control.append(range,stops);group.insertBefore(control,group.querySelector('.question-error'));sync();
 }
 updateProgress();
+
+// Remember an explicit acknowledgement on this browser, without storing answers.
+const notice=document.querySelector('#diagnosis-notice');
+const noticeKey='me-diagnosis-notice-acknowledged-v1';
+let noticeAcknowledged=false;
+try{noticeAcknowledged=localStorage.getItem(noticeKey)==='yes';}catch{}
+if(!noticeAcknowledged)notice.showModal();
+notice.addEventListener('cancel',event=>event.preventDefault());
+document.querySelector('#diagnosis-notice-confirm').addEventListener('click',()=>{
+ try{localStorage.setItem(noticeKey,'yes');}catch{}
+ notice.close();
+ document.querySelector('.answer-slider')?.focus({preventScroll:true});
+});
