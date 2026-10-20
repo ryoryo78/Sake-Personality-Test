@@ -10,7 +10,7 @@ body { margin:0; }
 .hotspot:focus-visible { outline:3px solid #28634c; outline-offset:2px; }
 .logo { left:5%; top:.7%; width:16%; height:1.7%; border-radius:4px; }
 .menu-toggle { right:3%; top:.5%; width:10%; height:2%; border-radius:5px; }
-.character-card { width:46.3%; }
+.character-card { width:46.3%; transform:scale(.9); transform-origin:center; }
 .character-card { --ink:#e84183; --surface:#fff; --circle:#fbdbe8; --image-surface:#fff0f6; font:inherit; text-align:left; background:var(--surface); overflow:hidden; }
 .character-card[data-tone="green"] { --ink:#2b873f; --surface:#fff; --circle:#d9efd3; --image-surface:#eef8eb; }
 .character-card, .character-card:hover { background:var(--surface); box-shadow:0 0 3px 1px var(--circle),0 4px 12px var(--circle); }
