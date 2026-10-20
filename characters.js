@@ -5,6 +5,13 @@ const heights=[9.4,9.8,10,10.2,10.4,10.5,10.5,10.8];
 const rowGap=(51.2-2.7-46.3*.9)*561/2804;
 const rows=[9.75+heights[0]*.05];
 for(let row=1;row<heights.length;row++) rows[row]=rows[row-1]+heights[row-1]*.94*.9+rowGap;
+// Remove the space saved by shortening cards and tightening the row gaps.
+const savedHeight=(84.03+heights[7]*.95)-(rows[7]+heights[7]*.94*.9);
+const page=document.querySelector('.characters-page');
+page.style.setProperty('--list-trim',savedHeight+'%');
+const updatePageTrim=()=>page.style.setProperty('--list-trim-space',(page.clientWidth*savedHeight/100*2804/561)+'px');
+updatePageTrim();
+new ResizeObserver(updatePageTrim).observe(page);
 const detail=document.querySelector('#character-detail');
 let activeCard;
 characters.forEach(({code,name,personality:description,imageFileName},index)=>{
