@@ -14,12 +14,13 @@ updatePageTrim();
 new ResizeObserver(updatePageTrim).observe(page);
 const detail=document.querySelector('#character-detail');
 let activeCard;
+const cardQueue=[];
 characters.forEach(({code,name,personality:description,imageFileName},index)=>{
  const button=document.createElement('button');
  button.className='hotspot character-card';button.type='button';
  button.dataset.tone=(Math.floor(index/2)+index%2)%2===0?'pink':'green';
  const picture=document.createElement('span');picture.className='character-picture';
- const image=document.createElement('img');image.src='images/'+imageFileName;image.alt='';image.decoding='async';
+ const image=document.createElement('img');image.dataset.src='images/'+imageFileName;image.alt='';image.decoding='async';
  picture.append(image);
  const copy=document.createElement('span');copy.className='character-copy';
  const title=document.createElement('strong');title.textContent=name;
@@ -36,7 +37,26 @@ characters.forEach(({code,name,personality:description,imageFileName},index)=>{
   activeCard=button;document.querySelector('#character-name').textContent=name;document.querySelector('#character-description').textContent=description;detail.showModal();
  });
  document.querySelector('#character-cards').append(button);
+ cardQueue.push({button,image});
 });
 for(const selector of ['.close','.back'])document.querySelector(selector).addEventListener('click',()=>detail.close());
 detail.addEventListener('close',()=>activeCard?.focus());
 
+
+// Paint the background and introduction before requesting portraits in reading order.
+const nextPaint=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+async function showCharacters(){
+ const root=document.documentElement;
+ try { await document.querySelector('.design').decode(); } catch {}
+ root.classList.add('characters-background-ready');
+ await nextPaint();
+ root.classList.add('characters-intro-ready');
+ await nextPaint();
+ for(const {button,image} of cardQueue){
+  image.src=image.dataset.src;
+  try { await image.decode(); } catch {}
+  button.classList.add('character-ready');
+ }
+ root.classList.remove('characters-loading');
+}
+showCharacters();

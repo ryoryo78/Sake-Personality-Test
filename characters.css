@@ -49,3 +49,8 @@ h2 { margin:20px 0 12px; font-size:21px; line-height:1.6; }
 
 /* Match the card edge with a fine divider; center both labels below it. */
 .character-copy::before { content:""; position:absolute; top:0; left:0; right:0; height:1px; background:var(--circle); box-shadow:0 0 3px var(--circle); }
+
+/* Keep the white artwork masks visible while staging the content. */
+.characters-loading:not(.characters-background-ready) .characters-page { visibility:hidden; }
+.characters-loading:not(.characters-intro-ready) .characters-intro { color:transparent; }
+.characters-loading .character-card:not(.character-ready) { visibility:hidden; }
