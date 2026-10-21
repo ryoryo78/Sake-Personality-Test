@@ -75,13 +75,17 @@ notice.addEventListener('cancel',event=>event.preventDefault());
 document.querySelector('#diagnosis-notice-confirm').addEventListener('click',()=>{
  try{sessionStorage.setItem(noticeKey,'yes');}catch{}
  notice.close();
+ document.documentElement.classList.remove('diagnosis-loading');
  document.querySelector('.answer-slider')?.focus({preventScroll:true});
 });
 
 async function showDiagnosis(){
  await diagnosisBackgroundReady;
  await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
- document.documentElement.classList.remove('diagnosis-loading');
- if(!noticeAcknowledged)notice.showModal();
+ if(!noticeAcknowledged){
+  notice.showModal();
+ }else{
+  document.documentElement.classList.remove('diagnosis-loading');
+ }
 }
 showDiagnosis();
