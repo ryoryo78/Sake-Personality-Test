@@ -176,3 +176,10 @@ form { padding-inline:4%; }
 #diagnosis-notice-confirm:focus-visible { outline:3px solid #182c57; outline-offset:3px; }
 
 #diagnosis-notice-title:focus { outline:none; }
+
+/* Let the header artwork paint before revealing interactive content. */
+.diagnosis-loading #diagnosis,
+.diagnosis-loading .progress-wrap,
+.diagnosis-loading .brand,
+.diagnosis-loading .quiz-page > footer,
+.diagnosis-loading .site-navigation { visibility:hidden; }

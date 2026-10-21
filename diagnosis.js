@@ -1,4 +1,9 @@
 'use strict';
+// Reuse the high-priority preload and wait until the header artwork can paint.
+const diagnosisBackground=new Image();
+diagnosisBackground.fetchPriority='high';
+diagnosisBackground.src='diagnosis-design.png';
+const diagnosisBackgroundReady=diagnosisBackground.decode().catch(()=>{});
 const form=document.querySelector('#diagnosis');
 const groups=[...form.querySelectorAll('.question')];
 const total=groups.length;
@@ -65,10 +70,18 @@ const notice=document.querySelector('#diagnosis-notice');
 const noticeKey='me-diagnosis-notice-acknowledged-v1';
 let noticeAcknowledged=false;
 try{noticeAcknowledged=sessionStorage.getItem(noticeKey)==='yes';}catch{}
-if(!noticeAcknowledged)notice.showModal();
+
 notice.addEventListener('cancel',event=>event.preventDefault());
 document.querySelector('#diagnosis-notice-confirm').addEventListener('click',()=>{
  try{sessionStorage.setItem(noticeKey,'yes');}catch{}
  notice.close();
  document.querySelector('.answer-slider')?.focus({preventScroll:true});
 });
+
+async function showDiagnosis(){
+ await diagnosisBackgroundReady;
+ await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+ document.documentElement.classList.remove('diagnosis-loading');
+ if(!noticeAcknowledged)notice.showModal();
+}
+showDiagnosis();
