@@ -6,12 +6,12 @@ const shareTitle='Me｜日本酒タイプ診断';
 function notify(text){clearTimeout(toastTimer);statusText.textContent=text;toastTimer=setTimeout(()=>{statusText.textContent='';},4000);}
 
 function text(selector,value){document.querySelector(selector).textContent=value;}
-function showEmpty(message){document.querySelector('#loading').hidden=true;document.querySelector('#empty').hidden=false;if(message)text('#empty-message',message);}
-function render(code,result){
+function showEmpty(message){document.documentElement.classList.remove('result-loading');document.querySelector('#loading').hidden=true;document.querySelector('#empty').hidden=false;if(message)text('#empty-message',message);}
+async function render(code,result){
  const type=typeData[code],sake=sakeRecommendation[code];
  text('#type-code',code+' タイプ');text('#type-name',type.name);
  text('#type-summary',result?result.axes.map(axis=>axis.winnerLabel.split('・')[0]).join(' × '):'あなたの日常を彩る、日本酒パーソナリティ');
- const image=document.querySelector('#character-image');image.src='images/'+type.imageFileName;image.alt=type.name+'のキャラクター';
+ const image=document.querySelector('#character-image');image.dataset.src='images/'+type.imageFileName;image.alt=type.name+'のキャラクター';
  text('#personality-text',type.personality);text('#food-text',type.foodPreference);
  for(const food of type.favoriteFoods){const li=document.createElement('li');li.textContent=food;document.querySelector('#favorite-foods').append(li);}
  text('#sake-brand',sake.brandName);text('#sake-brewery',sake.brewery);text('#sake-area',sake.area);document.querySelector('#sake-area').hidden=code==='EPDS';
@@ -28,7 +28,7 @@ function render(code,result){
    const winner=document.createElement('small');winner.textContent=axis.winner;
    center.append(percent,winner);ring.append(center);
    const caption=document.createElement('p');caption.className='axis-value';caption.textContent=axis.winnerLabel;
-   const icon=document.createElement('span');icon.className='score-icon';icon.setAttribute('aria-hidden','true');icon.innerHTML='<svg viewBox="'+['96 680 45 45','259 680 45 45','425 680 45 45','584 680 45 45'][index]+'"><image href="result-design.png" width="724" height="2172"/></svg>';
+   const icon=document.createElement('span');icon.className='score-icon';icon.setAttribute('aria-hidden','true');icon.innerHTML='<svg viewBox="'+['96 680 45 45','259 680 45 45','425 680 45 45','584 680 45 45'][index]+'"><image data-src="result-design.png" width="724" height="2172"/></svg>';
    card.append(icon,label,ring,caption);document.querySelector('#axis-scores').append(card);
   }
  }else{
@@ -39,17 +39,18 @@ function render(code,result){
  const intent=new URL('https://twitter.com/intent/tweet');intent.searchParams.set('text',shareText);intent.searchParams.set('url',xShareUrl);document.querySelector('#x-share').href=intent.href;document.querySelector('#x-compose').href=intent.href;
  document.title='Me｜'+(result?'診断結果':'タイプ紹介');
  document.querySelector('#loading').hidden=true;document.querySelector('#result-content').hidden=false;
+ await revealResultContent();
  ensureSharedImage().catch(()=>{});
 }
 async function init(){
  const code=new URLSearchParams(location.search).get('type');
- if(code!==null){if(Object.hasOwn(typeData,code))render(code,null);else showEmpty('このタイプは見つかりませんでした。診断からお試しください。');return;}
+ if(code!==null){if(Object.hasOwn(typeData,code))await render(code,null);else showEmpty('このタイプは見つかりませんでした。診断からお試しください。');return;}
  try{
   const raw=sessionStorage.getItem('me-diagnosis-answers-v1');if(!raw){showEmpty();return;}
   const response=await fetch('data/questions.json');if(!response.ok)throw new Error('Questions unavailable');
   const result=DiagnosisScoring.calculate(await response.json(),JSON.parse(raw));
   if(!Object.hasOwn(typeData,result.type))throw new Error('Unknown type');
-  render(result.type,result);
+  await render(result.type,result);
  }catch{showEmpty('結果を読み込めませんでした。ページを再読み込みするか、診断からもう一度お試しください。');}
 }
 let sharedImageFile, sharedImageUrl, sharedImagePromise, sharing=false;
@@ -124,4 +125,39 @@ document.querySelector('#instagram-copy').addEventListener('click',async()=>{
 document.querySelectorAll('.read-more').forEach(button=>button.addEventListener('click',()=>{
  const open=button.getAttribute('aria-expanded')!=='true';button.setAttribute('aria-expanded',String(open));document.getElementById(button.getAttribute('aria-controls')).classList.toggle('expanded',open);button.textContent=open?'閉じる':'続きを読む';
 }));
-init();
+// Background resources are decoded before any content image requests begin.
+const resultImageLoads=new Map();
+function loadResultImage(src){
+ if(!resultImageLoads.has(src)){
+  const image=new Image();
+  image.src=src;
+  resultImageLoads.set(src,image.decode().catch(()=>{}));
+ }
+ return resultImageLoads.get(src);
+}
+const resultPaint=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+async function revealResultContent(){
+ for(const section of document.querySelector('#result-content').children){
+  if(section.hidden)continue;
+  for(const image of section.querySelectorAll('[data-src]')){
+   const src=image.dataset.src;
+   if(image.tagName.toLowerCase()==='img'){
+    image.src=src;
+    try{await image.decode();}catch{}
+   }else{
+    await loadResultImage(src);
+    image.setAttribute('href',src);
+   }
+  }
+  section.classList.add('result-section-ready');
+  await resultPaint();
+ }
+ document.documentElement.classList.remove('result-loading');
+}
+async function startResult(){
+ await Promise.all(['characters-design-182c57.svg','design-clean-cta.png'].map(loadResultImage));
+ document.documentElement.classList.add('result-background-ready');
+ await resultPaint();
+ await init();
+}
+startResult();
