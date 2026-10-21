@@ -144,6 +144,6 @@ h2 { font-size:18px; }
 .result-loading:not(.result-background-ready) #loading,
 .result-loading #result-content > :not(.result-section-ready) { visibility:hidden; }
 
-/* One vector ribbon surface avoids overlapping raster edges behind the name. */
-.ribbon { left:7.44186%; width:85.11628%; top:5.88235%; height:79.41176%; background:transparent; border-radius:0; }
-.ribbon-art { filter:drop-shadow(0 2px 2px #c97b9b18); }
+/* Preserve the original ribbon edges; cover only its baked-in lettering. */
+.ribbon { left:13%; width:74%; top:0; height:91%; background:transparent; border-radius:0; }
+.ribbon-art { filter:none; }
