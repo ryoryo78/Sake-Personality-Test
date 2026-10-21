@@ -89,6 +89,6 @@ async function showDiagnosis(){
  await diagnosisBackgroundReady;
  await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
  diagnosisBackgroundPainted=true;
- if(noticeAcknowledged)document.documentElement.classList.remove('diagnosis-loading');
+ document.documentElement.classList.remove('diagnosis-loading');
 }
 showDiagnosis();
