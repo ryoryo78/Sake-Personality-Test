@@ -143,3 +143,6 @@ h2 { font-size:18px; }
 .result-loading:not(.result-background-ready) .site-navigation,
 .result-loading:not(.result-background-ready) #loading,
 .result-loading #result-content > :not(.result-section-ready) { visibility:hidden; }
+
+/* One vector ribbon surface avoids overlapping raster edges behind the name. */
+.ribbon { left:12.55814%; width:74.88372%; top:0; height:91.17647%; background:transparent; border-radius:0; }
