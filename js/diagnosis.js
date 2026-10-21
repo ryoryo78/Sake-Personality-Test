@@ -2,7 +2,7 @@
 // Reuse the high-priority preload and wait until the header artwork can paint.
 const diagnosisBackground=new Image();
 diagnosisBackground.fetchPriority='high';
-diagnosisBackground.src='diagnosis-design.png';
+diagnosisBackground.src='assets/backgrounds/diagnosis-design.png';
 const diagnosisBackgroundReady=diagnosisBackground.decode().catch(()=>{});
 const form=document.querySelector('#diagnosis');
 const groups=[...form.querySelectorAll('.question')];

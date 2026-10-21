@@ -48,7 +48,7 @@ dialog p { line-height:1.8; }
 /* Exclude the progress track baked into the artwork, including its soft edges. */
 .quiz-header::before {
  content:''; position:absolute; inset:0; pointer-events:none;
- background:url('diagnosis-design.png') center top / 100% auto no-repeat;
+ background:url('../assets/backgrounds/diagnosis-design.png') center top / 100% auto no-repeat;
  clip-path:polygon(evenodd,0 0,100% 0,100% 100%,0 100%,0 0,24% 69%,24% 85%,76% 85%,76% 69%,24% 69%);
 }
 .brand { position:absolute; left:40%; top:23%; width:20%; height:39%; }
@@ -71,7 +71,7 @@ form { padding:0 7%; }
 
 
 .submit-area { position:relative; isolation:isolate; margin:0 -8.14%; padding:21px 15% 0; min-height:35cqw; }
-.submit-area::before { content:''; position:absolute; z-index:-1; inset:0; background:url('diagnosis-clean-petal.svg') center bottom / 100% auto no-repeat; clip-path:polygon(0 0,18% 0,18% 59%,82% 59%,82% 0,100% 0,100% 100%,0 100%); pointer-events:none; }
+.submit-area::before { content:''; position:absolute; z-index:-1; inset:0; background:url('../assets/backgrounds/diagnosis-clean-petal.svg') center bottom / 100% auto no-repeat; clip-path:polygon(0 0,18% 0,18% 59%,82% 59%,82% 0,100% 0,100% 100%,0 100%); pointer-events:none; }
 #feedback:empty { display:none; }
 .result-button { position:relative; text-align:center; width:78%; min-height:54px; padding:13px 9px; font-size:17px; letter-spacing:.08em; background:linear-gradient(110deg,#e9548c,#e96395); box-shadow:0 5px 12px #e8598d30; }
 .result-button span { position:absolute; right:12px; top:50%; transform:translateY(-50%); margin:0; font-family:Arial, sans-serif; font-size:24px; line-height:1; font-weight:400; }

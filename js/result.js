@@ -28,7 +28,7 @@ async function render(code,result){
    const winner=document.createElement('small');winner.textContent=axis.winner;
    center.append(percent,winner);ring.append(center);
    const caption=document.createElement('p');caption.className='axis-value';caption.textContent=axis.winnerLabel;
-   const icon=document.createElement('span');icon.className='score-icon';icon.setAttribute('aria-hidden','true');icon.innerHTML='<svg viewBox="'+['96 680 45 45','259 680 45 45','425 680 45 45','584 680 45 45'][index]+'"><image data-src="result-design.png" width="724" height="2172"/></svg>';
+   const icon=document.createElement('span');icon.className='score-icon';icon.setAttribute('aria-hidden','true');icon.innerHTML='<svg viewBox="'+['96 680 45 45','259 680 45 45','425 680 45 45','584 680 45 45'][index]+'"><image data-src="assets/backgrounds/result-design.png" width="724" height="2172"/></svg>';
    card.append(icon,label,ring,caption);document.querySelector('#axis-scores').append(card);
   }
  }else{
@@ -155,7 +155,7 @@ async function revealResultContent(){
  document.documentElement.classList.remove('result-loading');
 }
 async function startResult(){
- await Promise.all(['characters-design-182c57.svg','design-clean-cta.png'].map(loadResultImage));
+ await Promise.all(['assets/backgrounds/characters-design-182c57.svg','assets/backgrounds/design-clean-cta.png'].map(loadResultImage));
  document.documentElement.classList.add('result-background-ready');
  await resultPaint();
  await init();
