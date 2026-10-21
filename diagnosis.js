@@ -69,23 +69,26 @@ updateProgress();
 const notice=document.querySelector('#diagnosis-notice');
 const noticeKey='me-diagnosis-notice-acknowledged-v1';
 let noticeAcknowledged=false;
+let diagnosisBackgroundPainted=false;
 try{noticeAcknowledged=sessionStorage.getItem(noticeKey)==='yes';}catch{}
+// Show the notice immediately, without waiting for background artwork.
+if(!noticeAcknowledged)notice.showModal();
 
 notice.addEventListener('cancel',event=>event.preventDefault());
 document.querySelector('#diagnosis-notice-confirm').addEventListener('click',()=>{
  try{sessionStorage.setItem(noticeKey,'yes');}catch{}
+ noticeAcknowledged=true;
  notice.close();
- document.documentElement.classList.remove('diagnosis-loading');
- document.querySelector('.answer-slider')?.focus({preventScroll:true});
+ if(diagnosisBackgroundPainted){
+  document.documentElement.classList.remove('diagnosis-loading');
+  document.querySelector('.answer-slider')?.focus({preventScroll:true});
+ }
 });
 
 async function showDiagnosis(){
  await diagnosisBackgroundReady;
  await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
- if(!noticeAcknowledged){
-  notice.showModal();
- }else{
-  document.documentElement.classList.remove('diagnosis-loading');
- }
+ diagnosisBackgroundPainted=true;
+ if(noticeAcknowledged)document.documentElement.classList.remove('diagnosis-loading');
 }
 showDiagnosis();
