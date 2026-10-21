@@ -145,4 +145,5 @@ h2 { font-size:18px; }
 .result-loading #result-content > :not(.result-section-ready) { visibility:hidden; }
 
 /* One vector ribbon surface avoids overlapping raster edges behind the name. */
-.ribbon { left:12.55814%; width:74.88372%; top:0; height:91.17647%; background:transparent; border-radius:0; }
+.ribbon { left:7.44186%; width:85.11628%; top:5.88235%; height:79.41176%; background:transparent; border-radius:0; }
+.ribbon-art { filter:drop-shadow(0 2px 2px #c97b9b18); }
