@@ -147,7 +147,3 @@ h2 { font-size:18px; }
 /* Preserve the original ribbon edges; cover only its baked-in lettering. */
 .ribbon { left:13%; width:74%; top:0; height:91%; background:transparent; border-radius:0; }
 .ribbon-art { filter:none; }
-
-/* Include the original curved top instead of cropping it at y=516. */
-.ribbon-wrap { aspect-ratio:430/82; }
-.ribbon { top:17.07317%; height:75.60976%; }
