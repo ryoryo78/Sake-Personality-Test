@@ -25,3 +25,9 @@
 }
 
 button, input, select, textarea { font-family:inherit; }
+
+/* Keep phone backgrounds full-width, including below short pages. */
+@media (hover:none) and (pointer:coarse) and (max-width:767px) {
+ html, body { background:#fff; }
+ body { min-height:100vh; min-height:100dvh; }
+}
