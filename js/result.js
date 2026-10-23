@@ -14,9 +14,10 @@ async function render(code,result){
  const image=document.querySelector('#character-image');image.dataset.src='images/'+type.imageFileName;image.alt=type.name+'のキャラクター';
  text('#personality-text',type.personality);text('#food-text',type.foodPreference);
  for(const food of type.favoriteFoods){const li=document.createElement('li');li.textContent=food;document.querySelector('#favorite-foods').append(li);}
- text('#sake-brand',sake.brandName);text('#sake-brewery',sake.brewery);text('#sake-area',sake.area);document.querySelector('#sake-area').hidden=code==='EPDS';
- document.querySelector('#sake-links').hidden=code!=='EPDS';
- text('#sake-status',code==='EPDS'?'このタイプのおすすめ':'銘柄は選定中です');
+ text('#sake-brand',sake.brandName);text('#sake-brewery',sake.brewery);text('#sake-description',sake.description);text('#sake-address',sake.address);text('#sake-access',sake.access);
+ document.querySelector('#sake-official').href=sake.officialUrl;
+ document.querySelector('#sake-links').hidden=false;
+ text('#sake-status','このタイプのおすすめ');
  if(result){
   for(const [index,axis] of result.axes.entries()){
    const card=document.createElement('div');

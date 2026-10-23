@@ -232,87 +232,150 @@ const typeData = {
   }
 };
 
-// 銘柄の差し替えはこのオブジェクトのみを編集する。EPDS以外の15件は仮置き。
-/** @type {Object<string, {brandName: string, brewery: string, area: string}>} */
+// 添付のタイプ別おすすめ酒一覧（2026-10-24）に基づく。
 const sakeRecommendation = {
   "EPFC": {
-    "brandName": "（仮）EPFCタイプのおすすめ酒",
-    "brewery": "未定（一都三県内で選定予定）",
-    "area": "未定"
+    "brandName": "仙禽 モダン",
+    "brewery": "せんきん（栃木県）",
+    "area": "栃木県",
+    "description": "「甘酸っぱい」がクセになる、ジューシーな味わい。栃木・さくら市の蔵が、地元の米と水で造ることにこだわっています。日本酒のイメージがガラッと変わる一本です。",
+    "address": "栃木県さくら市馬場106",
+    "access": "JR氏家駅から車で約10分",
+    "officialUrl": "https://www.senkin.co.jp/"
   },
   "EPFS": {
-    "brandName": "（仮）EPFSタイプのおすすめ酒",
-    "brewery": "未定（一都三県内で選定予定）",
-    "area": "未定"
+    "brandName": "風の森 ALPHA",
+    "brewery": "油長酒造（奈良県）",
+    "area": "奈良県",
+    "description": "搾ったままを瓶に詰めた、シュワッと微発泡のフレッシュな味わい。ALPHAは奈良・御所の蔵が新しいおいしさに挑む実験シリーズで、番号ごとに違う表情を楽しめます。",
+    "address": "奈良県御所市中本町1160",
+    "access": "JR・近鉄 御所駅から徒歩約5分",
+    "officialUrl": "https://yucho-sake.jp/"
   },
   "EPDC": {
-    "brandName": "（仮）EPDCタイプのおすすめ酒",
-    "brewery": "未定（一都三県内で選定予定）",
-    "area": "未定"
+    "brandName": "日高見 超辛口",
+    "brewery": "平孝酒造（宮城県）",
+    "area": "宮城県",
+    "description": "港町・宮城の石巻で「お寿司に一番合うお酒」を目指して造られる辛口。キリッとした後味が魚のうまみを引き立てます。お寿司やお刺身と一緒にどうぞ。",
+    "address": "宮城県石巻市清水町1-5-3",
+    "access": "JR石巻駅から徒歩約10分",
+    "officialUrl": "https://www.hirakoushuzou.jp/"
   },
   "EPDS": {
-    "brandName": "出羽桜",
+    "brandName": "出羽桜 桜花吟醸酒",
     "brewery": "出羽桜酒造（山形県）",
-    "area": "山形県"
+    "area": "山形県",
+    "description": "フルーティな「吟醸酒」を全国に広めた、山形・天童の定番酒。果物のような華やかな香りとすっきりした味わいで、日本酒デビューにもぴったり。",
+    "address": "山形県天童市一日町1-4-6",
+    "access": "JR天童駅・天童南駅から徒歩約15分",
+    "officialUrl": "https://www.dewazakura.co.jp/"
   },
   "EAFC": {
-    "brandName": "（仮）EAFCタイプのおすすめ酒",
-    "brewery": "未定（一都三県内で選定予定）",
-    "area": "未定"
+    "brandName": "八海山 特別本醸造",
+    "brewery": "八海醸造（新潟県）",
+    "area": "新潟県",
+    "description": "新潟を代表する、すっきり淡麗な辛口。冷やしても温めてもおいしく、どんな料理にも合わせやすい万能選手です。",
+    "address": "新潟県南魚沼市長森1051",
+    "access": "JR浦佐駅・六日町駅から車で約15分",
+    "officialUrl": "https://www.hakkaisan.co.jp/"
   },
   "EAFS": {
-    "brandName": "（仮）EAFSタイプのおすすめ酒",
-    "brewery": "未定（一都三県内で選定予定）",
-    "area": "未定"
+    "brandName": "鳳凰美田 純米吟醸",
+    "brewery": "小林酒造（栃木県）",
+    "area": "栃木県",
+    "description": "マスカットや洋梨を思わせる、華やかでフルーティな香りが魅力。グラスに注いだ瞬間から気分が上がる、栃木・小山生まれの一本です。",
+    "address": "栃木県小山市卒島743-1",
+    "access": "JR小山駅から車で約20分",
+    "officialUrl": "https://hououbiden.jp/"
   },
   "EADC": {
-    "brandName": "（仮）EADCタイプのおすすめ酒",
-    "brewery": "未定（一都三県内で選定予定）",
-    "area": "未定"
+    "brandName": "にいだしぜんしゅ",
+    "brewery": "仁井田本家（福島県）",
+    "area": "福島県",
+    "description": "自然栽培のお米と、蔵にすむ乳酸菌の力を借りる昔ながらの「生酛（きもと）造り」で醸す、福島・郡山のお酒。お米のコクとやさしい酸味がふわっと広がります。",
+    "address": "福島県郡山市田村町金沢字高屋敷139",
+    "access": "JR郡山駅から車で約20分／郡山東ICから車で約20分",
+    "officialUrl": "https://1711.jp/"
   },
   "EADS": {
-    "brandName": "（仮）EADSタイプのおすすめ酒",
-    "brewery": "未定（一都三県内で選定予定）",
-    "area": "未定"
+    "brandName": "雨後の月",
+    "brewery": "相原酒造（広島県）",
+    "area": "広島県",
+    "description": "澄みわたる夜空の月のような「うつくしい酒」を目指す、広島・呉の吟醸酒。やわらかな水で醸した、繊細で上品な香りをゆっくり味わってみてください。",
+    "address": "広島県呉市仁方本町1-25-15",
+    "access": "JR呉線 仁方駅から徒歩約5分",
+    "officialUrl": "https://www.ugonotsuki.com/"
   },
   "IPFC": {
-    "brandName": "（仮）IPFCタイプのおすすめ酒",
-    "brewery": "未定（一都三県内で選定予定）",
-    "area": "未定"
+    "brandName": "真澄 奥伝寒造り",
+    "brewery": "宮坂醸造（長野県）",
+    "area": "長野県",
+    "description": "長野・諏訪の老舗蔵が、冬の寒さを生かした伝統の「寒造り」で醸す定番酒。落ち着いたうまみで、冷やでも燗でも楽しめます。日本酒づくりに欠かせない「7号酵母」が生まれた蔵です。",
+    "address": "長野県諏訪市元町1-16",
+    "access": "JR上諏訪駅から徒歩約15分",
+    "officialUrl": "https://www.masumi.co.jp/"
   },
   "IPFS": {
-    "brandName": "（仮）IPFSタイプのおすすめ酒",
-    "brewery": "未定（一都三県内で選定予定）",
-    "area": "未定"
+    "brandName": "上善如水",
+    "brewery": "白瀧酒造（新潟県）",
+    "area": "新潟県",
+    "description": "「最上の善は水のようなもの」という言葉から名付けられた、透きとおるようにすっきりした一本。クセが少なく、日本酒が初めての人にも飲みやすい味わいです。",
+    "address": "新潟県南魚沼郡湯沢町湯沢2640",
+    "access": "JR越後湯沢駅から徒歩約10分",
+    "officialUrl": "https://www.jozen.co.jp/"
   },
   "IPDC": {
-    "brandName": "（仮）IPDCタイプのおすすめ酒",
-    "brewery": "未定（一都三県内で選定予定）",
-    "area": "未定"
+    "brandName": "神亀",
+    "brewery": "神亀酒造（埼玉県）",
+    "area": "埼玉県",
+    "description": "戦後初めて、造るお酒をすべて純米酒にした埼玉・蓮田の蔵。じっくり熟成させた深いうまみは、温めるとさらにふくらみます。ゆっくり味わう時間にぴったりです。",
+    "address": "埼玉県蓮田市馬込3-74",
+    "access": "JR蓮田駅から徒歩約15分（目安）",
+    "officialUrl": "https://shinkame.co.jp/"
   },
   "IPDS": {
-    "brandName": "（仮）IPDSタイプのおすすめ酒",
-    "brewery": "未定（一都三県内で選定予定）",
-    "area": "未定"
+    "brandName": "寺田本家 五人娘",
+    "brewery": "寺田本家（千葉県）",
+    "area": "千葉県",
+    "description": "無農薬のお米と昔ながらの「生酛（きもと）造り」で醸す、自然派の日本酒。酸味と複雑なうまみがあり、発酵食品好きにはたまらない一本です。",
+    "address": "千葉県香取郡神崎町神崎本宿1964",
+    "access": "JR成田線 下総神崎駅から車で約5分",
+    "officialUrl": "https://www.teradahonke.co.jp/"
   },
   "IAFC": {
-    "brandName": "（仮）IAFCタイプのおすすめ酒",
-    "brewery": "未定（一都三県内で選定予定）",
-    "area": "未定"
+    "brandName": "久保田 百寿",
+    "brewery": "朝日酒造（新潟県）",
+    "area": "新潟県",
+    "description": "新潟・長岡で造られる「久保田」シリーズの、毎日の晩酌向けの一本。穏やかでやさしい味わいで、冷やでも燗でも気軽に楽しめます。",
+    "address": "新潟県長岡市朝日880-1",
+    "access": "JR来迎寺駅から徒歩約10分",
+    "officialUrl": "https://www.asahi-shuzo.co.jp/"
   },
   "IAFS": {
-    "brandName": "（仮）IAFSタイプのおすすめ酒",
-    "brewery": "未定（一都三県内で選定予定）",
-    "area": "未定"
+    "brandName": "玉川 自然仕込",
+    "brewery": "木下酒造（京都府）",
+    "area": "京都府",
+    "description": "イギリス出身の杜氏、フィリップ・ハーパーさんが率いる京都・京丹後の蔵のお酒。蔵にすむ自然の酵母で醸した、しっかりした酸とうまみが特徴。温めると味わいがぐっと広がります。",
+    "address": "京都府京丹後市久美浜町甲山1512",
+    "access": "京都丹後鉄道 久美浜駅から車で約10分",
+    "officialUrl": "https://sake-tamagawa.com/"
   },
   "IADC": {
-    "brandName": "（仮）IADCタイプのおすすめ酒",
-    "brewery": "未定（一都三県内で選定予定）",
-    "area": "未定"
+    "brandName": "大七 生酛",
+    "brewery": "大七酒造（福島県）",
+    "area": "福島県",
+    "description": "手間のかかる伝統製法「生酛（きもと）造り」だけを貫く、福島・二本松の老舗蔵。濃いうまみと酸は、ジビエやチーズなど個性派の料理との食べ合わせを探るのにぴったり。",
+    "address": "福島県二本松市竹田1-66",
+    "access": "JR二本松駅からタクシー約5分／二本松ICから車で約7分",
+    "officialUrl": "https://www.daishichi.com/"
   },
   "IADS": {
-    "brandName": "（仮）IADSタイプのおすすめ酒",
-    "brewery": "未定（一都三県内で選定予定）",
-    "area": "未定"
+    "brandName": "一ノ蔵 ひめぜん",
+    "brewery": "一ノ蔵（宮城県）",
+    "area": "宮城県",
+    "description": "アルコール度数8%前後と低めの、甘酸っぱい日本酒。白ワインのような軽やかさで、お酒が強くない人でもゆっくり楽しめます。宮城・大崎の蔵が造っています。",
+    "address": "宮城県大崎市松山千石字大欅14",
+    "access": "JR東北本線 松山町駅から車で約5分",
+    "officialUrl": "https://ichinokura.co.jp/"
   }
 };
