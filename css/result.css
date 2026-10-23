@@ -124,7 +124,8 @@ h2 { font-size:18px; }
 .ribbon-wrap { aspect-ratio:430/68; }
 .ribbon { top:0; height:91%; }
 .sake-links { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
-.sake-links a { display:inline-block; padding:8px 10px; border-radius:18px; background:#fff0f6; color:#b84473; font-size:12px; text-decoration:none; }
+.sake-links a { display:inline; padding:0; border:0; border-radius:0; background:transparent; color:#b84473; font-size:12px; text-decoration:underline; text-underline-offset:3px; }
+.sake-links a:hover { color:#92365c; }
 #character-image { object-position:center top; }
 /* Show the entire illustration between the type heading and name ribbon. */
 #character-image { width:80%; height:60cqw; object-fit:contain; object-position:center; margin:8px auto 10px; transform:none; }
