@@ -149,11 +149,17 @@ h2 { font-size:18px; }
 .ribbon { left:13%; width:74%; top:0; height:91%; background:transparent; border-radius:0; }
 .ribbon-art { filter:none; }
 
-/* Keep the recommendation readable when brewery details span several lines. */
-.sake-card { display:grid; grid-template-columns:minmax(0,1fr) 29%; gap:12px 8px; }
-.sake-art { grid-column:2; grid-row:1; width:100%; height:150px; min-height:0; align-self:center; }
-.sake-copy { grid-column:1; grid-row:1; }
-.sake-details { grid-column:1 / -1; padding:0 6px 6px; }
-.sake-details dl { margin:12px 0 0; font-size:12px; line-height:1.7; }
-.sake-details dt { margin-top:8px; font-weight:700; }
-.sake-details dd { margin:2px 0 0; overflow-wrap:anywhere; }
+/* Group the recommendation into name, flavor, and brewery information. */
+.sake-card { display:grid; grid-template-columns:minmax(0,1fr) 26%; gap:16px 12px; padding:18px 16px; }
+.sake-art { grid-column:2; grid-row:1; width:100%; height:120px; min-height:0; align-self:center; }
+.sake-copy { grid-column:1; grid-row:1; align-self:center; }
+.sake-card h3 { margin:6px 0; padding:0; border:0; line-height:1.5; }
+.sake-copy .eyebrow { letter-spacing:.1em; }
+.sake-details { grid-column:1 / -1; min-width:0; padding:0; }
+.sake-details #sake-description { margin:0; font-size:13px; line-height:1.85; }
+.sake-details dl { margin:18px 0 0; padding-top:14px; border-top:1px solid #dcebd8; font-size:12px; line-height:1.75; }
+.sake-details dt { margin-top:12px; font-weight:700; }
+.sake-details dt:first-child { margin-top:0; }
+.sake-details dd { margin:3px 0 0; overflow-wrap:anywhere; }
+.sake-details .sake-links { margin-top:18px; }
+@media(max-width:360px) { .sake-card { padding:15px 12px; gap:14px 10px; } .sake-art { height:105px; } }
