@@ -188,3 +188,6 @@ h2 { font-size:18px; }
 .ring small { font-weight:700; }
 .axis-value { display:flex; flex-direction:column; justify-content:center; align-items:center; min-height:3em; text-align:center; }
 .axis-value span { display:block; white-space:nowrap; }
+
+/* Indent both lines of the product name by one character. */
+.sake-card #sake-brand { padding-inline-start:1em; }
