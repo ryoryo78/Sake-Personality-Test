@@ -31,8 +31,8 @@ h2 { font-size:18px; margin:0 0 10px; letter-spacing:.04em; }
 .score-details summary { cursor:pointer; }
 .score-details ul { padding-left:18px; }
 .description { display:flex; gap:14px; padding:17px 13px; }
-.personality { background:linear-gradient(120deg,#f6fcf7,#fff); border-color:#e5f4e7; }
-.food { background:linear-gradient(120deg,#fff,#fff9fc); }
+.personality { background:#fff; border-color:#ffedf4; }
+.food { background:#fff; border-color:#ffedf4; }
 .section-icon { flex:0 0 43px; height:43px; border-radius:50%; display:grid; place-items:center; background:#ffe9f2; color:#f36c9f; font-size:27px; }
 .food .section-icon { color:#75c87c; background:#e6f7e6; }
 .description p { font-size:15px; line-height:1.9; margin:0; overflow-wrap:anywhere; }
