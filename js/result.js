@@ -22,7 +22,7 @@ async function render(code,result){
  text('#sake-status','このタイプのおすすめ');
  const tags={"EPFC":["甘酸っぱい","ジューシー","地元の米と水"],"EPFS":["微発泡","フレッシュ","多彩な味わい"],"EPDC":["辛口","キレのよい後味","魚料理と"],"EPDS":["華やかな香り","すっきり","初めてにも"],"EAFC":["淡麗辛口","料理に合う","冷酒でも燗でも"],"EAFS":["フルーティ","華やかな香り","洋梨のよう"],"EADC":["お米のコク","やさしい酸味","自然栽培米"],"EADS":["繊細な香り","上品","やわらかな水"],"IPFC":["落ち着いた旨み","冷酒でも燗でも","寒造り"],"IPFS":["すっきり","クセが少ない","初めてにも"],"IPDC":["深い旨み","じっくり熟成","燗で楽しむ"],"IPDS":["酸味","複雑な旨み","自然派"],"IAFC":["穏やか","やさしい味わい","晩酌に"],"IAFS":["しっかりした酸","旨み","燗で楽しむ"],"IADC":["濃い旨み","酸味","チーズと"],"IADS":["甘酸っぱい","軽やか","低アルコール"]};
  const tagList=document.querySelector('#sake-tags');tagList.replaceChildren();
- for(const label of tags[code]){const item=document.createElement('li');item.textContent=label;tagList.append(item);}
+ for(const label of tags[code]){const item=document.createElement('li');item.textContent='#'+label;tagList.append(item);}
  if(result){
   for(const [index,axis] of result.axes.entries()){
    const card=document.createElement('div');
