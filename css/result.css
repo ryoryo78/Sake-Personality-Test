@@ -159,7 +159,7 @@ h2 { font-size:18px; }
 .sake-copy #sake-brewery { font-size:12px; line-height:1.6; }
 .sake-tags { display:flex; flex-wrap:wrap; gap:5px; padding:0; margin:12px 0; list-style:none; }
 .sake-tags li { padding:4px 7px; border-radius:20px; background:#fff0f6; color:#cb4c81; font-size:10px; line-height:1.5; }
-.sake-copy #sake-description { margin:0; font-size:12px; line-height:1.85; }
+.sake-card > #sake-description { grid-column:1 / -1; margin:0; font-size:12px; line-height:1.85; }
 .sake-details { grid-column:1 / -1; min-width:0; padding:12px; border-radius:12px; background:linear-gradient(110deg,#eef8ef,#f3faf4); }
 .brewery-heading { display:flex; align-items:center; gap:6px; margin:0 0 10px; font-size:15px; }
 .brewery-heading svg { width:17px; height:21px; color:#86a98a; }
