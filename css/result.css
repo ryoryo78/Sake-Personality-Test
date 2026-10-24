@@ -73,7 +73,7 @@ dialog button { margin-top:16px; min-height:44px; padding:8px 28px; border:0; bo
 .petal-two { right:5%; top:67%; transform:rotate(65deg); }
 .petal-three { left:4%; bottom:17%; transform:rotate(-20deg); }
 .petal-four { right:5%; top:14%; transform:rotate(80deg); }
-#type-code { position:relative; font-size:clamp(26px,7cqw,34px); color:#182C57; letter-spacing:.03em; margin:0 0 6px; line-height:1.4; }
+#type-code { position:relative; font-size:clamp(26px,7cqw,34px); color:#354A73; letter-spacing:.03em; margin:0 0 6px; line-height:1.4; }
 #type-summary { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
 #character-image { position:relative; width:74%; margin:-5px auto -22px; aspect-ratio:1; object-fit:contain; }
 .ribbon-wrap { position:relative; width:68%; aspect-ratio:430/83; margin:0 auto 16px; }
