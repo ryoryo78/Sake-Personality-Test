@@ -15,6 +15,8 @@ async function render(code,result){
  text('#personality-text',type.personality);text('#food-text',type.foodPreference);
  for(const food of type.favoriteFoods){const li=document.createElement('li');li.textContent=food;document.querySelector('#favorite-foods').append(li);}
  text('#sake-brand',sake.brandName.replace(' ','\n'));text('#sake-brewery',sake.brewery);text('#sake-description',sake.description);text('#sake-address',sake.address);text('#sake-access',sake.access);
+ const productImages={"EPFC":"01_EPFC.jpg","EPFS":"02_EPFS.jpg","EPDC":"03_EPDC.jpg","EPDS":"04_EPDS.jpg","EAFC":"05_EAFC.jpg","EAFS":"06_EAFS.jpg","EADC":"07_EADC.jpg","EADS":"08_EADS.jpg","IPFC":"09_IPFC.jpg","IPFS":"10_IPFS.jpg","IPDC":"11_IPDC.jpg","IPDS":"12_IPDS.jpg","IAFC":"13_IAFC.jpg","IAFS":"14_IAFS.jpg","IADC":"15_IADC.jpg","IADS":"16_IADS.jpg"};
+ const productImage=document.querySelector('#sake-image');productImage.dataset.src='assets/products/'+productImages[code];productImage.alt=sake.brandName+'の商品画像';
  document.querySelector('#sake-official').href=sake.officialUrl;
  document.querySelector('#sake-links').hidden=false;
  text('#sake-status','このタイプのおすすめ');

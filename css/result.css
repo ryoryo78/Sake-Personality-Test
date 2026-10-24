@@ -173,3 +173,6 @@ h2 { font-size:18px; }
 .sake-links a { display:block; padding:11px 8px; border-radius:12px; text-align:center; background:linear-gradient(110deg,#d95588,#ce5482); color:#fff; font-size:15px; text-decoration:none; }
 .sake-links a:hover { background:#c94c7d; color:#fff; }
 @media(max-width:360px) { .sake-card { padding:14px 10px 10px; grid-template-columns:minmax(0,1fr) 29%; } .sake-art { min-height:170px; } .sake-details { padding:10px; } .sake-details dl { grid-template-columns:6em minmax(0,1fr); gap:7px; } }
+
+/* Product photographs retain their full portrait without cropping. */
+.sake-card img.sake-art { display:block; height:auto; min-height:0; max-height:none; aspect-ratio:2 / 3; object-fit:contain; object-position:center top; }
