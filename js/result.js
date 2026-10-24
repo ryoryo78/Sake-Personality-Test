@@ -33,7 +33,7 @@ async function render(code,result){
    const percent=document.createElement('strong');percent.textContent=axis.percent+'%';
    const winner=document.createElement('small');winner.textContent=axis.winner;
    center.append(percent,winner);ring.append(center);
-   const caption=document.createElement('p');caption.className='axis-value';caption.textContent=axis.winnerLabel;
+   const caption=document.createElement('p');caption.className='axis-value';const parts=axis.winnerLabel.split('・');for(const [partIndex,part] of parts.entries()){const line=document.createElement('span');line.textContent=part+(partIndex<parts.length-1?'・':'');caption.append(line);}
    card.append(label,ring,caption);document.querySelector('#axis-scores').append(card);
   }
  }else{
