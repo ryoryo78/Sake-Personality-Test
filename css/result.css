@@ -189,5 +189,6 @@ h2 { font-size:18px; }
 .axis-value { display:flex; flex-direction:column; justify-content:center; align-items:center; min-height:3em; text-align:center; }
 .axis-value span { display:block; white-space:nowrap; }
 
-/* Indent both lines of the product name by one character. */
-.sake-card #sake-brand { padding-inline-start:1em; }
+/* Align the product and brewery names using half a title character. */
+.sake-copy { --sake-name-indent:calc(clamp(21px,5.8cqw,27px) / 2); }
+.sake-card #sake-brand,.sake-copy #sake-brewery { padding-inline-start:var(--sake-name-indent); }
