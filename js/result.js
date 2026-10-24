@@ -34,8 +34,7 @@ async function render(code,result){
    const winner=document.createElement('small');winner.textContent=axis.winner;
    center.append(percent,winner);ring.append(center);
    const caption=document.createElement('p');caption.className='axis-value';caption.textContent=axis.winnerLabel;
-   const icon=document.createElement('span');icon.className='score-icon';icon.setAttribute('aria-hidden','true');icon.innerHTML='<svg viewBox="'+['96 680 45 45','259 680 45 45','425 680 45 45','584 680 45 45'][index]+'"><image data-src="assets/backgrounds/result-design.png" width="724" height="2172"/></svg>';
-   card.append(icon,label,ring,caption);document.querySelector('#axis-scores').append(card);
+   card.append(label,ring,caption);document.querySelector('#axis-scores').append(card);
   }
  }else{
   text('#page-title','タイプ紹介');document.querySelector('#scores-panel').hidden=true;document.querySelector('#profile-note').hidden=false;
