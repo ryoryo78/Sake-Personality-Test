@@ -330,7 +330,7 @@ const sakeRecommendation = {
     "area": "埼玉県",
     "description": "戦後初めて、造るお酒をすべて純米酒にした埼玉・蓮田の蔵。じっくり熟成させた深いうまみは、温めるとさらにふくらみます。ゆっくり味わう時間にぴったりです。",
     "address": "埼玉県蓮田市馬込3-74",
-    "access": "JR蓮田駅から徒歩約15分（目安）",
+    "access": "JR蓮田駅から徒歩約15分",
     "officialUrl": "https://shinkame.co.jp/"
   },
   "IPDS": {
