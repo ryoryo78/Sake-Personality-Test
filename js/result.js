@@ -38,7 +38,7 @@ async function render(code,result){
   }
  }else{
   text('#page-title','タイプ紹介');document.querySelector('#scores-panel').hidden=true;document.querySelector('#profile-note').hidden=false;
-  text('.retry-link','診断をする');document.querySelector('.share-panel').hidden=true;
+  text('.retry-link','診断をする');document.querySelector('.share-panel').hidden=true;document.querySelector('.characters-return-link').hidden=false;
  }
  shareUrl=new URL('result.html',location.href);shareUrl.searchParams.set('type',code);shareUrl=shareUrl.href;
  shareText='〼Me | 日本酒パーソナリティ診断「'+type.name+'（'+code+'）」';

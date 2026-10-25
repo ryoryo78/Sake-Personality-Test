@@ -194,7 +194,9 @@ h2 { font-size:18px; }
 .sake-card #sake-brand,.sake-copy #sake-brewery { padding-inline-start:var(--sake-name-indent); }
 
 /* Give the diagnosis action breathing room on type introductions. */
-.share-panel[hidden] + .retry-link { margin-top:32px; }
+.share-panel[hidden] + .retry-link { margin-top:32px; top:8px; }
 
 /* Hide header circles only while the no-result guidance is visible. */
 .result-page:has(#empty:not([hidden])) .header-art > ellipse { display:none; }
+
+.characters-return-link { position:absolute; z-index:1; bottom:28px; left:0; width:100%; text-align:center; color:#182C57; font-size:14px; line-height:1.8; text-decoration:underline; text-underline-offset:4px; }
