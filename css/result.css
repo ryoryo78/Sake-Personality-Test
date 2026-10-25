@@ -195,3 +195,6 @@ h2 { font-size:18px; }
 
 /* Give the diagnosis action breathing room on type introductions. */
 .share-panel[hidden] + .retry-link { margin-top:32px; }
+
+/* Hide header circles only while the no-result guidance is visible. */
+.result-page:has(#empty:not([hidden])) .header-art > ellipse { display:none; }
