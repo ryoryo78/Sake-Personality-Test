@@ -168,8 +168,8 @@ h2 { font-size:18px; }
 .sake-details dt { margin:0; padding:3px; border-radius:5px; background:#e2f1e3; text-align:center; font-weight:700; }
 .sake-details dd { margin:0; padding:3px 0; overflow-wrap:anywhere; }
 .sake-card > .sake-links { grid-column:1 / -1; display:block; margin:0; }
-.sake-links a { display:block; padding:11px 8px; border-radius:12px; text-align:center; background:linear-gradient(110deg,#ee7caa,#e875a4); color:#fff; font-size:15px; text-decoration:none; }
-.sake-links a:hover { background:#e36c9c; color:#fff; }
+.sake-links a { display:block; padding:11px 8px; border-radius:12px; text-align:center; background:#e95690; color:#fff; font-size:15px; text-decoration:none; }
+.sake-links a:hover { background:#dd4c85; color:#fff; }
 @media(max-width:360px) { .sake-card { padding:14px 10px 10px; grid-template-columns:minmax(0,1fr) 29%; } .sake-art { min-height:170px; } .sake-details { padding:10px; } .sake-details dl { grid-template-columns:6em minmax(0,1fr); gap:7px; } }
 
 /* Product photographs retain their full portrait without cropping. */
