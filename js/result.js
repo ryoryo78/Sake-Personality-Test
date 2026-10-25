@@ -38,6 +38,7 @@ async function render(code,result){
   }
  }else{
   text('#page-title','タイプ紹介');document.querySelector('#scores-panel').hidden=true;document.querySelector('#profile-note').hidden=false;
+  text('.retry-link','診断をする');document.querySelector('.share-panel').hidden=true;
  }
  shareUrl=new URL('result.html',location.href);shareUrl.searchParams.set('type',code);shareUrl=shareUrl.href;
  shareText='〼Me | 日本酒パーソナリティ診断「'+type.name+'（'+code+'）」';
@@ -45,7 +46,7 @@ async function render(code,result){
  document.title='Me｜'+(result?'診断結果':'タイプ紹介');
  document.querySelector('#loading').hidden=true;document.querySelector('#result-content').hidden=false;
  await revealResultContent();
- ensureSharedImage().catch(()=>{});
+ if(result)ensureSharedImage().catch(()=>{});
 }
 async function init(){
  const code=new URLSearchParams(location.search).get('type');
