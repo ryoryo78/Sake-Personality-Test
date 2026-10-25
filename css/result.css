@@ -192,3 +192,6 @@ h2 { font-size:18px; }
 /* Align the product and brewery names using half a title character. */
 .sake-copy { --sake-name-indent:calc(clamp(21px,5.8cqw,27px) / 2); }
 .sake-card #sake-brand,.sake-copy #sake-brewery { padding-inline-start:var(--sake-name-indent); }
+
+/* Give the diagnosis action breathing room on type introductions. */
+.share-panel[hidden] + .retry-link { margin-top:32px; }
