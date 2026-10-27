@@ -183,3 +183,21 @@ form { padding-inline:4%; }
 .diagnosis-loading .brand,
 .diagnosis-loading .quiz-page > footer,
 .diagnosis-loading .site-navigation { visibility:hidden; }
+
+/* Keep the initial thumb opaque while the unanswered rail stays muted. */
+.unanswered .answer-slider {
+ opacity:1;
+ background-image:linear-gradient(#cc6b948c,#cc6b948c),linear-gradient(#70a4638c,#70a4638c);
+}
+.unanswered .answer-slider::-webkit-slider-runnable-track {
+ background:linear-gradient(90deg,#e97ba68c,#f6c7d98c 40%,#cce5c28c 60%,#70b6658c);
+}
+.unanswered .answer-slider::-moz-range-track {
+ background:linear-gradient(90deg,#e97ba68c,#f6c7d98c 40%,#cce5c28c 60%,#70b6658c);
+}
+.unanswered .answer-slider::-webkit-slider-thumb {
+ box-shadow:inset 0 2px 2px #ffffff99,inset 0 -2px 2px #263b4a30,0 0 0 1px #8997a080,0 3px 6px #24364445;
+}
+.unanswered .answer-slider::-moz-range-thumb {
+ box-shadow:inset 0 2px 2px #ffffff99,inset 0 -2px 2px #263b4a30,0 0 0 1px #8997a080,0 3px 6px #24364445;
+}
