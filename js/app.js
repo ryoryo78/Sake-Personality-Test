@@ -47,10 +47,10 @@ if (!featureMotion.matches && 'IntersectionObserver' in window) {
     const mask = document.createElement('div');
     mask.className = 'feature-reveal-mask';
     mask.setAttribute('aria-hidden', 'true');
-    mask.style.top = top + '%';
+    mask.style.top = (top * 3 + 8.83977900552486) + 'cqw';
     const drawing = document.createElement('div');
     drawing.className = 'feature-slide-art';
-    drawing.style.backgroundPosition = '0 -' + (top * 3) + 'cqw';
+    drawing.style.backgroundPosition = '0 -' + (top * 3 + 8.83977900552486) + 'cqw';
     drawing.addEventListener('transitionend', event => {
       if (event.propertyName === 'transform') mask.remove();
     });

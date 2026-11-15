@@ -29,7 +29,7 @@ dialog p { font-size: 15px; line-height: 1.8; }
 .option:hover, .type-option:hover { border-color: #e55b90; }
 .primary { border: 0; background: #e75e92; color: white; font-weight: bold; }
 .back { border: 0; color:#182C57; background: transparent; }
-.portrait { width: 112px; height: 76px; margin-bottom: 20px; background-image: url('../assets/backgrounds/design-tagline.svg?v=feature-first-original-20261026'); background-size: 390px 1170px; border-radius: 12px; }
+.portrait { width: 112px; height: 76px; margin-bottom: 20px; background-image: url('../assets/backgrounds/design-tagline.svg?v=wave-spacing-20261116'); background-size: 390px 1170px; border-radius: 12px; }
 .portrait[data-character="0"] { background-position: -30px -713px; }
 .portrait[data-character="1"] { background-position: -30px -789px; }
 .portrait[data-character="2"] { background-position: -30px -867px; }
@@ -71,7 +71,7 @@ body.homepage-static .feature-reveal-mask {
 }
 body.homepage-static .feature-slide-art {
   position:absolute; inset:0;
-  background-image:url('../assets/backgrounds/design-tagline.svg?v=feature-first-original-20261026');
+  background-image:url('../assets/backgrounds/design-tagline.svg?v=wave-spacing-20261116');
   background-size:100cqw 300cqw; background-repeat:no-repeat;
   opacity:0; transform:translateY(24px);
   transition:transform .65s cubic-bezier(.22,.61,.36,1) var(--reveal-delay,0ms),opacity .65s ease var(--reveal-delay,0ms)!important;
@@ -128,3 +128,11 @@ body.homepage-static .characters .character.card-slide-ready:focus-visible { tra
   background:#fff; color:transparent; pointer-events:none;
 }
 .home-loading .characters .character { visibility:hidden; }
+
+/* Add 32 artwork pixels of breathing room on each side of the first wave. */
+.start-top { top:45.93cqw; height:9.21cqw; }
+.start-middle { top:156.67977900552486cqw; height:9.96cqw; }
+.type-list { top:274.9997790055249cqw; height:9.81cqw; }
+.characters { top:190.78977900552485cqw; height:80.4cqw; }
+body.homepage-static .feature-reveal-mask { height:21.9cqw; }
+body.homepage-static .feature-slide-art { background-size:100cqw 308.83977900552486cqw; }
