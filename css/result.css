@@ -200,3 +200,8 @@ h2 { font-size:18px; }
 .result-page:has(#empty:not([hidden])) .header-art > ellipse { display:none; }
 
 .characters-return-link { position:absolute; z-index:1; bottom:28px; left:0; width:100%; text-align:center; color:#182C57; font-size:14px; line-height:1.8; text-decoration:underline; text-underline-offset:4px; }
+
+/* Consistent, responsive spacing between the result cards. */
+#result-content { --result-card-gap:clamp(16px,5cqw,20px); }
+#result-content > .panel,
+#result-content > .recommendation { margin-block:var(--result-card-gap); }
