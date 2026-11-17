@@ -213,4 +213,4 @@ h2 { font-size:18px; }
 
 /* Underline the score and share headings with their text color. */
 .scores-panel h2,.share-panel h2 { margin-bottom:14px; }
-.scores-panel h2::after,.share-panel h2::after { content:""; display:block; width:4.2em; height:1px; margin:4px auto 0; background:currentColor; }
+.scores-panel h2::after,.share-panel h2::after { content:""; display:block; width:4.2em; height:3px; border-radius:999px; margin:4px auto 0; background:currentColor; }
