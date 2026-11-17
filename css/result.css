@@ -222,6 +222,6 @@ h2 { font-size:18px; }
 #result-content > .scores-panel { margin-top:calc(var(--result-card-gap) + 8px); }
 
 /* Center the space between the type code and label. */
-#type-code { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); column-gap:.35em; }
+#type-code { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); column-gap:.35em; align-items:baseline; }
 #type-code > span:first-child { text-align:right; }
-#type-code > span:last-child { text-align:left; }
+#type-code > span:last-child { text-align:left; font-size:.9em; }
