@@ -220,3 +220,6 @@ h2 { font-size:18px; }
 
 /* Add breathing room between the character ribbon and score card. */
 #result-content > .scores-panel { margin-top:calc(var(--result-card-gap) + 8px); }
+
+/* Soften the pink outline without blurring card content. */
+#result-content > .panel { border-color:transparent; box-shadow:0 0 3px 1px #f9dce8,0 4px 16px #f28db024; }
