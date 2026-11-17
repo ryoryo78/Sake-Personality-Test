@@ -210,3 +210,7 @@ h2 { font-size:18px; }
 #result-content > .description,
 #result-content > .foods,
 #result-content > .share-panel { margin-inline:clamp(6px,2cqw,8px); }
+
+/* Underline the score heading with its text color. */
+.scores-panel h2 { margin-bottom:14px; }
+.scores-panel h2::after { content:""; display:block; width:4.2em; height:1px; margin:4px auto 0; background:currentColor; }
