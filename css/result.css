@@ -217,3 +217,6 @@ h2 { font-size:18px; }
 
 /* Give the recommendation card extra separation above and below. */
 #result-content > .recommendation { margin-block:clamp(28px,8cqw,32px); }
+
+/* Add breathing room between the character ribbon and score card. */
+#result-content > .scores-panel { margin-top:calc(var(--result-card-gap) + 8px); }
