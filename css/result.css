@@ -213,7 +213,7 @@ h2 { font-size:18px; }
 
 /* Underline the score and share headings with their text color. */
 .scores-panel h2,.share-panel h2 { width:fit-content; max-width:100%; margin:0 auto 14px; }
-.scores-panel h2::after,.share-panel h2::after { content:""; display:block; width:96%; height:2px; border-radius:999px; margin:6px auto 0; background:currentColor; }
+.scores-panel h2::after,.share-panel h2::after { content:""; display:block; width:90%; height:2px; border-radius:999px; margin:6px auto 0; background:currentColor; }
 
 /* Give the recommendation card extra separation above and below. */
 #result-content > .recommendation { margin-block:clamp(28px,8cqw,32px); }
