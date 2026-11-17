@@ -9,7 +9,10 @@ function text(selector,value){document.querySelector(selector).textContent=value
 function showEmpty(message){document.documentElement.classList.remove('result-loading');document.querySelector('#loading').hidden=true;document.querySelector('#empty').hidden=false;if(message)text('#empty-message',message);}
 async function render(code,result){
  const type=typeData[code],sake=sakeRecommendation[code];
- text('#type-code',code+' タイプ');text('#type-name',type.name);
+ const typeHeading=document.querySelector('#type-code');
+ const codeLabel=document.createElement('span');codeLabel.textContent=code;
+ const typeLabel=document.createElement('span');typeLabel.textContent='タイプ';
+ typeHeading.replaceChildren(codeLabel,document.createTextNode(' '),typeLabel);text('#type-name',type.name);
  text('#type-summary',result?result.axes.map(axis=>axis.winnerLabel.split('・')[0]).join(' × '):'あなたの日常を彩る、日本酒パーソナリティ');
  const image=document.querySelector('#character-image');image.dataset.src='images/'+type.imageFileName;image.alt=type.name+'のキャラクター';
  text('#personality-text',type.personality);text('#food-text',type.foodPreference);
