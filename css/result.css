@@ -205,3 +205,8 @@ h2 { font-size:18px; }
 #result-content { --result-card-gap:clamp(16px,5cqw,20px); }
 #result-content > .panel,
 #result-content > .recommendation { margin-block:var(--result-card-gap); }
+
+/* Inset the detail and sharing cards equally on both sides. */
+#result-content > .description,
+#result-content > .foods,
+#result-content > .share-panel { margin-inline:clamp(6px,2cqw,8px); }
