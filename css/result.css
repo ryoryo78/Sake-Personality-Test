@@ -67,12 +67,6 @@ dialog button { margin-top:16px; min-height:44px; padding:8px 28px; border:0; bo
 .logo-mark { font-size:0; }
 .result-header h1 { position:absolute; width:1px; height:1px; padding:0; border:0; overflow:hidden; clip-path:inset(50%); }
 .hero { margin-inline:-4.8%; padding:calc(4cqw + 21px) 0 0; background:none; }
-.hero-decoration { position:absolute; inset:0; bottom:calc(clamp(7.28px,1.96cqw,9.52px) + 25px); pointer-events:none; }
-.petal { position:absolute; width:8%; }
-.petal-one { left:6%; top:12%; transform:rotate(-8deg); }
-.petal-two { right:5%; top:67%; transform:rotate(65deg); }
-.petal-three { left:4%; bottom:17%; transform:rotate(-20deg); }
-.petal-four { right:5%; top:14%; transform:rotate(80deg); }
 #type-code { position:relative; font-size:clamp(31.2px,8.4cqw,40.8px); color:#354A73; letter-spacing:.03em; margin:0 0 10px; line-height:1.4; }
 #type-summary { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
 #character-image { position:relative; width:74%; margin:-5px auto -22px; aspect-ratio:1; object-fit:contain; }
@@ -118,7 +112,6 @@ h2 { font-size:18px; }
 @media(max-width:360px) { .score-grid { gap:7px; } .ring strong { font-size:13.125px; } .axis-label { font-size:11px; } .section-icon { flex-basis:42px; width:42px; height:42px; } .description,.foods { gap:10px; } .sake-art { min-height:105px; } .ribbon-wrap { width:76%; } }
 .hero { background:none; }
 #character-image { width:80%; height:60cqw; aspect-ratio:auto; object-fit:cover; object-position:center 33%; margin:0 auto -8px; }
-.petal { overflow:hidden; }
 .ribbon-wrap { aspect-ratio:430/68; }
 .ribbon { top:0; height:91%; }
 .sake-links { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
@@ -225,7 +218,3 @@ h2 { font-size:18px; }
 #type-code { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); column-gap:.35em; align-items:baseline; }
 #type-code > span:first-child { text-align:right; }
 #type-code > span:last-child { text-align:left; font-size:.9em; }
-
-.hero-decoration { z-index:2; }
-.hero-decoration .petal { pointer-events:auto; touch-action:none; user-select:none; cursor:grab; }
-.hero-decoration .petal:active { cursor:grabbing; }

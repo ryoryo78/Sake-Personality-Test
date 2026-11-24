@@ -170,31 +170,3 @@ async function startResult(){
  await init();
 }
 startResult();
-
-function enablePetalDragging(petal) {
-  let drag;
-  let x = 0;
-  let y = 0;
-  petal.addEventListener('pointerdown', event => {
-    if (drag || event.button !== 0) return;
-    const start = petal.getBoundingClientRect();
-    const bounds = petal.parentElement.getBoundingClientRect();
-    drag = {
-      id: event.pointerId, clientX: event.clientX, clientY: event.clientY,
-      x, y, minX: bounds.left - start.left, maxX: bounds.right - start.right,
-      minY: bounds.top - start.top, maxY: bounds.bottom - start.bottom
-    };
-    petal.setPointerCapture(event.pointerId);
-    event.preventDefault();
-  });
-  petal.addEventListener('pointermove', event => {
-    if (!drag || drag.id !== event.pointerId) return;
-    const dx = Math.max(drag.minX, Math.min(drag.maxX, event.clientX - drag.clientX));
-    const dy = Math.max(drag.minY, Math.min(drag.maxY, event.clientY - drag.clientY));
-    x = drag.x + dx;
-    y = drag.y + dy;
-    petal.style.translate = x + 'px ' + y + 'px';
-  });
-  petal.addEventListener('lostpointercapture', () => { drag = null; });
-}
-document.querySelectorAll('.hero-decoration .petal').forEach(enablePetalDragging);
