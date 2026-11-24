@@ -225,3 +225,7 @@ h2 { font-size:18px; }
 #type-code { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); column-gap:.35em; align-items:baseline; }
 #type-code > span:first-child { text-align:right; }
 #type-code > span:last-child { text-align:left; font-size:.9em; }
+
+.hero-decoration { z-index:2; }
+.hero-decoration .petal { pointer-events:bounding-box; touch-action:none; user-select:none; cursor:grab; }
+.hero-decoration .petal:active { cursor:grabbing; }
