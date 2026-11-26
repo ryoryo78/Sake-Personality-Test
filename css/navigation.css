@@ -34,3 +34,5 @@ button, input, select, textarea { font-family:inherit; }
 
 /* Allow touch scrolling without pinch zoom on every page, including dialogs. */
 html, body, dialog { touch-action:pan-x pan-y; }
+
+.quiz-header .brand, .result-header .result-brand, .characters-page .hotspot.logo { z-index:3; background:white url("../assets/izayoi-logo.svg") center / contain no-repeat; }
