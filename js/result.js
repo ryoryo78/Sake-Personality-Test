@@ -2,7 +2,7 @@
 const statusText=document.querySelector('#share-status');
 let shareUrl,shareText,toastTimer;
 const xShareUrl=new URL('./',location.href).href;
-const shareTitle='いざよい｜日本酒タイプ診断';
+const shareTitle='Me｜日本酒タイプ診断';
 function notify(text){clearTimeout(toastTimer);statusText.textContent=text;toastTimer=setTimeout(()=>{statusText.textContent='';},4000);}
 
 function text(selector,value){document.querySelector(selector).textContent=value;}
@@ -44,9 +44,9 @@ async function render(code,result){
   text('.retry-link','診断をする');document.querySelector('.share-panel').hidden=true;document.querySelector('.characters-return-link').hidden=false;
  }
  shareUrl=new URL('result.html',location.href);shareUrl.searchParams.set('type',code);shareUrl=shareUrl.href;
- shareText='いざよい | 日本酒パーソナリティ診断「'+type.name+'（'+code+'）」';
+ shareText='〼Me | 日本酒パーソナリティ診断「'+type.name+'（'+code+'）」';
  const intent=new URL('https://twitter.com/intent/tweet');intent.searchParams.set('text',shareText);intent.searchParams.set('url',xShareUrl);document.querySelector('#x-share').href=intent.href;document.querySelector('#x-compose').href=intent.href;
- document.title='いざよい｜'+(result?'診断結果':'タイプ紹介');
+ document.title='Me｜'+(result?'診断結果':'タイプ紹介');
  document.querySelector('#loading').hidden=true;document.querySelector('#result-content').hidden=false;
  await revealResultContent();
  if(result)ensureSharedImage().catch(()=>{});
@@ -79,12 +79,7 @@ async function prepareSharedImage(){
  ctx.fillStyle='#BDE0D8';ctx.fillRect(0,0,1080,1080);
  ctx.fillStyle='#fff';ctx.fillRect(40,40,1000,1000);
  ctx.textAlign='center';ctx.fillStyle='#182C57';ctx.font='700 42px "Zen Maru Gothic",sans-serif';
- const logo = new Image();
- logo.src = 'assets/izayoi-logo.svg';
- await logo.decode();
- ctx.drawImage(logo, 435, 45, 210, 93);
- ctx.font = '24px "Zen Maru Gothic", sans-serif';
- ctx.fillText('日本酒パーソナリティ診断',540,158,900);
+ ctx.fillText('〼Me | 日本酒パーソナリティ診断',540,125,900);
  ctx.fillStyle='#e65d95';ctx.font='700 48px "Zen Maru Gothic",sans-serif';
  ctx.fillText(document.querySelector('#type-code').textContent,540,215);
  const scale=Math.min(650/image.naturalWidth,530/image.naturalHeight);
@@ -94,7 +89,7 @@ async function prepareSharedImage(){
  ctx.fillText(document.querySelector('#type-name').textContent,540,875,900);
  ctx.font='28px "Zen Maru Gothic",sans-serif';ctx.fillText('あなたに合う一杯、きっと見つかる。',540,970);
  const blob=await new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(new Error('Image unavailable')),'image/png'));
- sharedImageFile=new File([blob],'izayoi-'+new URL(shareUrl).searchParams.get('type')+'.png',{type:'image/png'});
+ sharedImageFile=new File([blob],'me-'+new URL(shareUrl).searchParams.get('type')+'.png',{type:'image/png'});
  sharedImageUrl=URL.createObjectURL(blob);
  for(const network of ['instagram','x']){
   const preview=document.querySelector('#'+network+'-preview');preview.src=sharedImageUrl;preview.hidden=false;
@@ -103,7 +98,7 @@ async function prepareSharedImage(){
  }
 }
 function showShareFallback(network,message){
- if(network==='instagram')document.querySelector('#instagram-caption').value=shareText+'\n'+shareUrl+'\n#いざよい診断 #日本酒';
+ if(network==='instagram')document.querySelector('#instagram-caption').value=shareText+'\n'+shareUrl+'\n#Me診断 #日本酒';
  document.querySelector('#'+network+'-status').textContent=message;
  const dialog=document.querySelector('#'+network+'-dialog');
  if(!dialog.open)dialog.showModal();
