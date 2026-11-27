@@ -158,6 +158,15 @@ async function revealResultContent(){
     image.setAttribute('href',src);
    }
   }
+  if(section.id==='scores-panel' && 'IntersectionObserver' in window && window.CSS?.registerProperty){
+   section.dataset.ringAnimation='waiting';
+   const observer=new IntersectionObserver(([entry])=>{
+    if(!entry.isIntersecting)return;
+    section.dataset.ringAnimation='playing';
+    observer.disconnect();
+   });
+   observer.observe(section.querySelector('.score-grid'));
+  }
   section.classList.add('result-section-ready');
   await resultPaint();
  }
