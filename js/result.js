@@ -173,7 +173,7 @@ async function revealResultContent(){
  document.documentElement.classList.remove('result-loading');
 }
 async function startResult(){
- await Promise.all(['assets/backgrounds/me-logo.webp','assets/backgrounds/design-clean-cta.png'].map(loadResultImage));
+ await Promise.all(['assets/backgrounds/me-logo.webp?v=2','assets/backgrounds/design-clean-cta.png'].map(loadResultImage));
  document.documentElement.classList.add('result-background-ready');
  await resultPaint();
  await init();
